@@ -1,0 +1,36 @@
+{
+  "en": {
+    "translation": {
+      "common": {
+        "goToHomePage": "Go back to the homepage",
+        "goToSecondPage": "Go to page 2"
+      },
+      "home": {
+        "greeting": "Hi people",
+        "details": "Welcome to your new Gatsby site.",
+        "prompt": "Now go build something great."
+      },
+      "secondPage": {
+        "greeting": "Hi from the second page",
+        "details": "Welcome to page 2"
+      }
+    }
+  },
+  "fr": {
+    "translation": {
+      "common": {
+        "goToHomePage": "Retour à la page c'accueil",
+        "goToSecondPage": "Aller à la deuxième page"
+      },
+      "home": {
+        "greeting": "Bonjour tout le monde",
+        "details": "Bienvenu à mon site créé avec Gatsby",
+        "prompt": "Maintenant va contruire quelque chose de fantastique."
+      },
+      "secondPage": {
+        "greeting": "Salut de la deuxième page",
+        "details": "Vous êtes sur la deuxième page"
+      }
+    }
+  }
+}

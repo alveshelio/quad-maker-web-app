@@ -1,0 +1,4792 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: query_root
+    mutation: mutation_root
+    subscription: subscription_root
+}
+
+"columns and relationships of \"addresses\""
+type addresses {
+    "An array relationship"
+    businesses(
+        "distinct select on columns"
+        distinct_on: [businesses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [businesses_order_by!],
+        "filter the rows returned"
+        where: businesses_bool_exp
+    ): [businesses!]!
+    "An aggregated array relationship"
+    businesses_aggregate(
+        "distinct select on columns"
+        distinct_on: [businesses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [businesses_order_by!],
+        "filter the rows returned"
+        where: businesses_bool_exp
+    ): businesses_aggregate!
+    "An object relationship"
+    country: countries
+    country_id: smallint
+    id: uuid!
+    name: String!
+    owner_id: uuid!
+    "An object relationship"
+    state: states
+    state_id: smallint
+    street: String!
+    "An object relationship"
+    user: users!
+    zip_code: bpchar
+}
+
+"aggregated selection of \"addresses\""
+type addresses_aggregate {
+    aggregate: addresses_aggregate_fields
+    nodes: [addresses!]!
+}
+
+"aggregate fields of \"addresses\""
+type addresses_aggregate_fields {
+    avg: addresses_avg_fields
+    count(columns: [addresses_select_column!], distinct: Boolean): Int
+    max: addresses_max_fields
+    min: addresses_min_fields
+    stddev: addresses_stddev_fields
+    stddev_pop: addresses_stddev_pop_fields
+    stddev_samp: addresses_stddev_samp_fields
+    sum: addresses_sum_fields
+    var_pop: addresses_var_pop_fields
+    var_samp: addresses_var_samp_fields
+    variance: addresses_variance_fields
+}
+
+"aggregate avg on columns"
+type addresses_avg_fields {
+    country_id: Float
+    state_id: Float
+}
+
+"aggregate max on columns"
+type addresses_max_fields {
+    country_id: smallint
+    id: uuid
+    name: String
+    owner_id: uuid
+    state_id: smallint
+    street: String
+}
+
+"aggregate min on columns"
+type addresses_min_fields {
+    country_id: smallint
+    id: uuid
+    name: String
+    owner_id: uuid
+    state_id: smallint
+    street: String
+}
+
+"response of any mutation on the table \"addresses\""
+type addresses_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [addresses!]!
+}
+
+"aggregate stddev on columns"
+type addresses_stddev_fields {
+    country_id: Float
+    state_id: Float
+}
+
+"aggregate stddev_pop on columns"
+type addresses_stddev_pop_fields {
+    country_id: Float
+    state_id: Float
+}
+
+"aggregate stddev_samp on columns"
+type addresses_stddev_samp_fields {
+    country_id: Float
+    state_id: Float
+}
+
+"aggregate sum on columns"
+type addresses_sum_fields {
+    country_id: smallint
+    state_id: smallint
+}
+
+"aggregate var_pop on columns"
+type addresses_var_pop_fields {
+    country_id: Float
+    state_id: Float
+}
+
+"aggregate var_samp on columns"
+type addresses_var_samp_fields {
+    country_id: Float
+    state_id: Float
+}
+
+"aggregate variance on columns"
+type addresses_variance_fields {
+    country_id: Float
+    state_id: Float
+}
+
+"columns and relationships of \"auth.account_providers\""
+type auth_account_providers {
+    "An object relationship"
+    account: auth_accounts!
+    account_id: uuid!
+    auth_provider: String!
+    auth_provider_unique_id: String!
+    created_at: timestamptz!
+    id: uuid!
+    "An object relationship"
+    provider: auth_providers!
+    updated_at: timestamptz!
+}
+
+"aggregated selection of \"auth.account_providers\""
+type auth_account_providers_aggregate {
+    aggregate: auth_account_providers_aggregate_fields
+    nodes: [auth_account_providers!]!
+}
+
+"aggregate fields of \"auth.account_providers\""
+type auth_account_providers_aggregate_fields {
+    count(columns: [auth_account_providers_select_column!], distinct: Boolean): Int
+    max: auth_account_providers_max_fields
+    min: auth_account_providers_min_fields
+}
+
+"aggregate max on columns"
+type auth_account_providers_max_fields {
+    account_id: uuid
+    auth_provider: String
+    auth_provider_unique_id: String
+    created_at: timestamptz
+    id: uuid
+    updated_at: timestamptz
+}
+
+"aggregate min on columns"
+type auth_account_providers_min_fields {
+    account_id: uuid
+    auth_provider: String
+    auth_provider_unique_id: String
+    created_at: timestamptz
+    id: uuid
+    updated_at: timestamptz
+}
+
+"response of any mutation on the table \"auth.account_providers\""
+type auth_account_providers_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [auth_account_providers!]!
+}
+
+"columns and relationships of \"auth.account_roles\""
+type auth_account_roles {
+    "An object relationship"
+    account: auth_accounts!
+    account_id: uuid!
+    created_at: timestamptz!
+    id: uuid!
+    role: String!
+    "An object relationship"
+    roleByRole: auth_roles!
+}
+
+"aggregated selection of \"auth.account_roles\""
+type auth_account_roles_aggregate {
+    aggregate: auth_account_roles_aggregate_fields
+    nodes: [auth_account_roles!]!
+}
+
+"aggregate fields of \"auth.account_roles\""
+type auth_account_roles_aggregate_fields {
+    count(columns: [auth_account_roles_select_column!], distinct: Boolean): Int
+    max: auth_account_roles_max_fields
+    min: auth_account_roles_min_fields
+}
+
+"aggregate max on columns"
+type auth_account_roles_max_fields {
+    account_id: uuid
+    created_at: timestamptz
+    id: uuid
+    role: String
+}
+
+"aggregate min on columns"
+type auth_account_roles_min_fields {
+    account_id: uuid
+    created_at: timestamptz
+    id: uuid
+    role: String
+}
+
+"response of any mutation on the table \"auth.account_roles\""
+type auth_account_roles_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [auth_account_roles!]!
+}
+
+"columns and relationships of \"auth.accounts\""
+type auth_accounts {
+    "An array relationship"
+    account_providers(
+        "distinct select on columns"
+        distinct_on: [auth_account_providers_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_providers_order_by!],
+        "filter the rows returned"
+        where: auth_account_providers_bool_exp
+    ): [auth_account_providers!]!
+    "An aggregated array relationship"
+    account_providers_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_account_providers_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_providers_order_by!],
+        "filter the rows returned"
+        where: auth_account_providers_bool_exp
+    ): auth_account_providers_aggregate!
+    "An array relationship"
+    account_roles(
+        "distinct select on columns"
+        distinct_on: [auth_account_roles_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_roles_order_by!],
+        "filter the rows returned"
+        where: auth_account_roles_bool_exp
+    ): [auth_account_roles!]!
+    "An aggregated array relationship"
+    account_roles_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_account_roles_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_roles_order_by!],
+        "filter the rows returned"
+        where: auth_account_roles_bool_exp
+    ): auth_account_roles_aggregate!
+    active: Boolean!
+    created_at: timestamptz!
+    custom_register_data(
+        "JSON select path"
+        path: String
+    ): jsonb
+    default_role: String!
+    email: citext
+    id: uuid!
+    is_anonymous: Boolean!
+    mfa_enabled: Boolean!
+    new_email: citext
+    otp_secret: String
+    password_hash: String
+    "An array relationship"
+    refresh_tokens(
+        "distinct select on columns"
+        distinct_on: [auth_refresh_tokens_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_refresh_tokens_order_by!],
+        "filter the rows returned"
+        where: auth_refresh_tokens_bool_exp
+    ): [auth_refresh_tokens!]!
+    "An aggregated array relationship"
+    refresh_tokens_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_refresh_tokens_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_refresh_tokens_order_by!],
+        "filter the rows returned"
+        where: auth_refresh_tokens_bool_exp
+    ): auth_refresh_tokens_aggregate!
+    "An object relationship"
+    role: auth_roles!
+    ticket: uuid!
+    ticket_expires_at: timestamptz!
+    updated_at: timestamptz!
+    "An object relationship"
+    user: users!
+    user_id: uuid!
+}
+
+"aggregated selection of \"auth.accounts\""
+type auth_accounts_aggregate {
+    aggregate: auth_accounts_aggregate_fields
+    nodes: [auth_accounts!]!
+}
+
+"aggregate fields of \"auth.accounts\""
+type auth_accounts_aggregate_fields {
+    count(columns: [auth_accounts_select_column!], distinct: Boolean): Int
+    max: auth_accounts_max_fields
+    min: auth_accounts_min_fields
+}
+
+"aggregate max on columns"
+type auth_accounts_max_fields {
+    created_at: timestamptz
+    default_role: String
+    email: citext
+    id: uuid
+    new_email: citext
+    otp_secret: String
+    password_hash: String
+    ticket: uuid
+    ticket_expires_at: timestamptz
+    updated_at: timestamptz
+    user_id: uuid
+}
+
+"aggregate min on columns"
+type auth_accounts_min_fields {
+    created_at: timestamptz
+    default_role: String
+    email: citext
+    id: uuid
+    new_email: citext
+    otp_secret: String
+    password_hash: String
+    ticket: uuid
+    ticket_expires_at: timestamptz
+    updated_at: timestamptz
+    user_id: uuid
+}
+
+"response of any mutation on the table \"auth.accounts\""
+type auth_accounts_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [auth_accounts!]!
+}
+
+"columns and relationships of \"auth.providers\""
+type auth_providers {
+    "An array relationship"
+    account_providers(
+        "distinct select on columns"
+        distinct_on: [auth_account_providers_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_providers_order_by!],
+        "filter the rows returned"
+        where: auth_account_providers_bool_exp
+    ): [auth_account_providers!]!
+    "An aggregated array relationship"
+    account_providers_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_account_providers_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_providers_order_by!],
+        "filter the rows returned"
+        where: auth_account_providers_bool_exp
+    ): auth_account_providers_aggregate!
+    provider: String!
+}
+
+"aggregated selection of \"auth.providers\""
+type auth_providers_aggregate {
+    aggregate: auth_providers_aggregate_fields
+    nodes: [auth_providers!]!
+}
+
+"aggregate fields of \"auth.providers\""
+type auth_providers_aggregate_fields {
+    count(columns: [auth_providers_select_column!], distinct: Boolean): Int
+    max: auth_providers_max_fields
+    min: auth_providers_min_fields
+}
+
+"aggregate max on columns"
+type auth_providers_max_fields {
+    provider: String
+}
+
+"aggregate min on columns"
+type auth_providers_min_fields {
+    provider: String
+}
+
+"response of any mutation on the table \"auth.providers\""
+type auth_providers_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [auth_providers!]!
+}
+
+"columns and relationships of \"auth.refresh_tokens\""
+type auth_refresh_tokens {
+    "An object relationship"
+    account: auth_accounts!
+    account_id: uuid!
+    created_at: timestamptz!
+    expires_at: timestamptz!
+    refresh_token: uuid!
+}
+
+"aggregated selection of \"auth.refresh_tokens\""
+type auth_refresh_tokens_aggregate {
+    aggregate: auth_refresh_tokens_aggregate_fields
+    nodes: [auth_refresh_tokens!]!
+}
+
+"aggregate fields of \"auth.refresh_tokens\""
+type auth_refresh_tokens_aggregate_fields {
+    count(columns: [auth_refresh_tokens_select_column!], distinct: Boolean): Int
+    max: auth_refresh_tokens_max_fields
+    min: auth_refresh_tokens_min_fields
+}
+
+"aggregate max on columns"
+type auth_refresh_tokens_max_fields {
+    account_id: uuid
+    created_at: timestamptz
+    expires_at: timestamptz
+    refresh_token: uuid
+}
+
+"aggregate min on columns"
+type auth_refresh_tokens_min_fields {
+    account_id: uuid
+    created_at: timestamptz
+    expires_at: timestamptz
+    refresh_token: uuid
+}
+
+"response of any mutation on the table \"auth.refresh_tokens\""
+type auth_refresh_tokens_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [auth_refresh_tokens!]!
+}
+
+"columns and relationships of \"auth.roles\""
+type auth_roles {
+    "An array relationship"
+    account_roles(
+        "distinct select on columns"
+        distinct_on: [auth_account_roles_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_roles_order_by!],
+        "filter the rows returned"
+        where: auth_account_roles_bool_exp
+    ): [auth_account_roles!]!
+    "An aggregated array relationship"
+    account_roles_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_account_roles_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_roles_order_by!],
+        "filter the rows returned"
+        where: auth_account_roles_bool_exp
+    ): auth_account_roles_aggregate!
+    "An array relationship"
+    accounts(
+        "distinct select on columns"
+        distinct_on: [auth_accounts_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_accounts_order_by!],
+        "filter the rows returned"
+        where: auth_accounts_bool_exp
+    ): [auth_accounts!]!
+    "An aggregated array relationship"
+    accounts_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_accounts_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_accounts_order_by!],
+        "filter the rows returned"
+        where: auth_accounts_bool_exp
+    ): auth_accounts_aggregate!
+    role: String!
+}
+
+"aggregated selection of \"auth.roles\""
+type auth_roles_aggregate {
+    aggregate: auth_roles_aggregate_fields
+    nodes: [auth_roles!]!
+}
+
+"aggregate fields of \"auth.roles\""
+type auth_roles_aggregate_fields {
+    count(columns: [auth_roles_select_column!], distinct: Boolean): Int
+    max: auth_roles_max_fields
+    min: auth_roles_min_fields
+}
+
+"aggregate max on columns"
+type auth_roles_max_fields {
+    role: String
+}
+
+"aggregate min on columns"
+type auth_roles_min_fields {
+    role: String
+}
+
+"response of any mutation on the table \"auth.roles\""
+type auth_roles_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [auth_roles!]!
+}
+
+"columns and relationships of \"businesses\""
+type businesses {
+    "An object relationship"
+    address: addresses
+    address_id: uuid
+    category_id: uuid!
+    description: String
+    email_address: String!
+    id: uuid!
+    name: String!
+    owner_id: uuid!
+}
+
+"aggregated selection of \"businesses\""
+type businesses_aggregate {
+    aggregate: businesses_aggregate_fields
+    nodes: [businesses!]!
+}
+
+"aggregate fields of \"businesses\""
+type businesses_aggregate_fields {
+    count(columns: [businesses_select_column!], distinct: Boolean): Int
+    max: businesses_max_fields
+    min: businesses_min_fields
+}
+
+"aggregate max on columns"
+type businesses_max_fields {
+    address_id: uuid
+    category_id: uuid
+    description: String
+    email_address: String
+    id: uuid
+    name: String
+    owner_id: uuid
+}
+
+"aggregate min on columns"
+type businesses_min_fields {
+    address_id: uuid
+    category_id: uuid
+    description: String
+    email_address: String
+    id: uuid
+    name: String
+    owner_id: uuid
+}
+
+"response of any mutation on the table \"businesses\""
+type businesses_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [businesses!]!
+}
+
+"columns and relationships of \"categories\""
+type categories {
+    "An array relationship"
+    categories_translations(
+        "distinct select on columns"
+        distinct_on: [categories_translations_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_translations_order_by!],
+        "filter the rows returned"
+        where: categories_translations_bool_exp
+    ): [categories_translations!]!
+    "An aggregated array relationship"
+    categories_translations_aggregate(
+        "distinct select on columns"
+        distinct_on: [categories_translations_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_translations_order_by!],
+        "filter the rows returned"
+        where: categories_translations_bool_exp
+    ): categories_translations_aggregate!
+    creator_id: uuid
+    id: uuid!
+    name: String!
+    "An object relationship"
+    user: users
+}
+
+"aggregated selection of \"categories\""
+type categories_aggregate {
+    aggregate: categories_aggregate_fields
+    nodes: [categories!]!
+}
+
+"aggregate fields of \"categories\""
+type categories_aggregate_fields {
+    count(columns: [categories_select_column!], distinct: Boolean): Int
+    max: categories_max_fields
+    min: categories_min_fields
+}
+
+"aggregate max on columns"
+type categories_max_fields {
+    creator_id: uuid
+    id: uuid
+    name: String
+}
+
+"aggregate min on columns"
+type categories_min_fields {
+    creator_id: uuid
+    id: uuid
+    name: String
+}
+
+"response of any mutation on the table \"categories\""
+type categories_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [categories!]!
+}
+
+"columns and relationships of \"categories_translations\""
+type categories_translations {
+    "An object relationship"
+    category: categories!
+    category_id: uuid!
+    creator_id: uuid
+    description: String!
+    id: uuid!
+    "An object relationship"
+    language: languages!
+    language_id: uuid!
+    name: String!
+    "An object relationship"
+    user: users
+}
+
+"aggregated selection of \"categories_translations\""
+type categories_translations_aggregate {
+    aggregate: categories_translations_aggregate_fields
+    nodes: [categories_translations!]!
+}
+
+"aggregate fields of \"categories_translations\""
+type categories_translations_aggregate_fields {
+    count(columns: [categories_translations_select_column!], distinct: Boolean): Int
+    max: categories_translations_max_fields
+    min: categories_translations_min_fields
+}
+
+"aggregate max on columns"
+type categories_translations_max_fields {
+    category_id: uuid
+    creator_id: uuid
+    description: String
+    id: uuid
+    language_id: uuid
+    name: String
+}
+
+"aggregate min on columns"
+type categories_translations_min_fields {
+    category_id: uuid
+    creator_id: uuid
+    description: String
+    id: uuid
+    language_id: uuid
+    name: String
+}
+
+"response of any mutation on the table \"categories_translations\""
+type categories_translations_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [categories_translations!]!
+}
+
+"columns and relationships of \"countries\""
+type countries {
+    "An array relationship"
+    addresses(
+        "distinct select on columns"
+        distinct_on: [addresses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [addresses_order_by!],
+        "filter the rows returned"
+        where: addresses_bool_exp
+    ): [addresses!]!
+    "An aggregated array relationship"
+    addresses_aggregate(
+        "distinct select on columns"
+        distinct_on: [addresses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [addresses_order_by!],
+        "filter the rows returned"
+        where: addresses_bool_exp
+    ): addresses_aggregate!
+    id: smallint!
+    iso: String!
+    iso3: String
+    name: String!
+    num_code: Int
+    phone_code: Int!
+    "An array relationship"
+    states(
+        "distinct select on columns"
+        distinct_on: [states_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [states_order_by!],
+        "filter the rows returned"
+        where: states_bool_exp
+    ): [states!]!
+    "An aggregated array relationship"
+    states_aggregate(
+        "distinct select on columns"
+        distinct_on: [states_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [states_order_by!],
+        "filter the rows returned"
+        where: states_bool_exp
+    ): states_aggregate!
+}
+
+"aggregated selection of \"countries\""
+type countries_aggregate {
+    aggregate: countries_aggregate_fields
+    nodes: [countries!]!
+}
+
+"aggregate fields of \"countries\""
+type countries_aggregate_fields {
+    avg: countries_avg_fields
+    count(columns: [countries_select_column!], distinct: Boolean): Int
+    max: countries_max_fields
+    min: countries_min_fields
+    stddev: countries_stddev_fields
+    stddev_pop: countries_stddev_pop_fields
+    stddev_samp: countries_stddev_samp_fields
+    sum: countries_sum_fields
+    var_pop: countries_var_pop_fields
+    var_samp: countries_var_samp_fields
+    variance: countries_variance_fields
+}
+
+"aggregate avg on columns"
+type countries_avg_fields {
+    id: Float
+    num_code: Float
+    phone_code: Float
+}
+
+"aggregate max on columns"
+type countries_max_fields {
+    id: smallint
+    iso: String
+    iso3: String
+    name: String
+    num_code: Int
+    phone_code: Int
+}
+
+"aggregate min on columns"
+type countries_min_fields {
+    id: smallint
+    iso: String
+    iso3: String
+    name: String
+    num_code: Int
+    phone_code: Int
+}
+
+"response of any mutation on the table \"countries\""
+type countries_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [countries!]!
+}
+
+"aggregate stddev on columns"
+type countries_stddev_fields {
+    id: Float
+    num_code: Float
+    phone_code: Float
+}
+
+"aggregate stddev_pop on columns"
+type countries_stddev_pop_fields {
+    id: Float
+    num_code: Float
+    phone_code: Float
+}
+
+"aggregate stddev_samp on columns"
+type countries_stddev_samp_fields {
+    id: Float
+    num_code: Float
+    phone_code: Float
+}
+
+"aggregate sum on columns"
+type countries_sum_fields {
+    id: smallint
+    num_code: Int
+    phone_code: Int
+}
+
+"aggregate var_pop on columns"
+type countries_var_pop_fields {
+    id: Float
+    num_code: Float
+    phone_code: Float
+}
+
+"aggregate var_samp on columns"
+type countries_var_samp_fields {
+    id: Float
+    num_code: Float
+    phone_code: Float
+}
+
+"aggregate variance on columns"
+type countries_variance_fields {
+    id: Float
+    num_code: Float
+    phone_code: Float
+}
+
+"columns and relationships of \"languages\""
+type languages {
+    "An array relationship"
+    categories_translations(
+        "distinct select on columns"
+        distinct_on: [categories_translations_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_translations_order_by!],
+        "filter the rows returned"
+        where: categories_translations_bool_exp
+    ): [categories_translations!]!
+    "An aggregated array relationship"
+    categories_translations_aggregate(
+        "distinct select on columns"
+        distinct_on: [categories_translations_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_translations_order_by!],
+        "filter the rows returned"
+        where: categories_translations_bool_exp
+    ): categories_translations_aggregate!
+    code: bpchar!
+    id: uuid!
+    name: String!
+}
+
+"aggregated selection of \"languages\""
+type languages_aggregate {
+    aggregate: languages_aggregate_fields
+    nodes: [languages!]!
+}
+
+"aggregate fields of \"languages\""
+type languages_aggregate_fields {
+    count(columns: [languages_select_column!], distinct: Boolean): Int
+    max: languages_max_fields
+    min: languages_min_fields
+}
+
+"aggregate max on columns"
+type languages_max_fields {
+    id: uuid
+    name: String
+}
+
+"aggregate min on columns"
+type languages_min_fields {
+    id: uuid
+    name: String
+}
+
+"response of any mutation on the table \"languages\""
+type languages_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [languages!]!
+}
+
+"mutation root"
+type mutation_root {
+    "delete data from the table: \"addresses\""
+    delete_addresses(
+        "filter the rows which have to be deleted"
+        where: addresses_bool_exp!
+    ): addresses_mutation_response
+    "delete single row from the table: \"addresses\""
+    delete_addresses_by_pk(id: uuid!): addresses
+    "delete data from the table: \"auth.account_providers\""
+    delete_auth_account_providers(
+        "filter the rows which have to be deleted"
+        where: auth_account_providers_bool_exp!
+    ): auth_account_providers_mutation_response
+    "delete single row from the table: \"auth.account_providers\""
+    delete_auth_account_providers_by_pk(id: uuid!): auth_account_providers
+    "delete data from the table: \"auth.account_roles\""
+    delete_auth_account_roles(
+        "filter the rows which have to be deleted"
+        where: auth_account_roles_bool_exp!
+    ): auth_account_roles_mutation_response
+    "delete single row from the table: \"auth.account_roles\""
+    delete_auth_account_roles_by_pk(id: uuid!): auth_account_roles
+    "delete data from the table: \"auth.accounts\""
+    delete_auth_accounts(
+        "filter the rows which have to be deleted"
+        where: auth_accounts_bool_exp!
+    ): auth_accounts_mutation_response
+    "delete single row from the table: \"auth.accounts\""
+    delete_auth_accounts_by_pk(id: uuid!): auth_accounts
+    "delete data from the table: \"auth.providers\""
+    delete_auth_providers(
+        "filter the rows which have to be deleted"
+        where: auth_providers_bool_exp!
+    ): auth_providers_mutation_response
+    "delete single row from the table: \"auth.providers\""
+    delete_auth_providers_by_pk(provider: String!): auth_providers
+    "delete data from the table: \"auth.refresh_tokens\""
+    delete_auth_refresh_tokens(
+        "filter the rows which have to be deleted"
+        where: auth_refresh_tokens_bool_exp!
+    ): auth_refresh_tokens_mutation_response
+    "delete single row from the table: \"auth.refresh_tokens\""
+    delete_auth_refresh_tokens_by_pk(refresh_token: uuid!): auth_refresh_tokens
+    "delete data from the table: \"auth.roles\""
+    delete_auth_roles(
+        "filter the rows which have to be deleted"
+        where: auth_roles_bool_exp!
+    ): auth_roles_mutation_response
+    "delete single row from the table: \"auth.roles\""
+    delete_auth_roles_by_pk(role: String!): auth_roles
+    "delete data from the table: \"businesses\""
+    delete_businesses(
+        "filter the rows which have to be deleted"
+        where: businesses_bool_exp!
+    ): businesses_mutation_response
+    "delete single row from the table: \"businesses\""
+    delete_businesses_by_pk(id: uuid!): businesses
+    "delete data from the table: \"categories\""
+    delete_categories(
+        "filter the rows which have to be deleted"
+        where: categories_bool_exp!
+    ): categories_mutation_response
+    "delete single row from the table: \"categories\""
+    delete_categories_by_pk(id: uuid!): categories
+    "delete data from the table: \"categories_translations\""
+    delete_categories_translations(
+        "filter the rows which have to be deleted"
+        where: categories_translations_bool_exp!
+    ): categories_translations_mutation_response
+    "delete single row from the table: \"categories_translations\""
+    delete_categories_translations_by_pk(id: uuid!): categories_translations
+    "delete data from the table: \"countries\""
+    delete_countries(
+        "filter the rows which have to be deleted"
+        where: countries_bool_exp!
+    ): countries_mutation_response
+    "delete single row from the table: \"countries\""
+    delete_countries_by_pk(id: smallint!): countries
+    "delete data from the table: \"languages\""
+    delete_languages(
+        "filter the rows which have to be deleted"
+        where: languages_bool_exp!
+    ): languages_mutation_response
+    "delete single row from the table: \"languages\""
+    delete_languages_by_pk(id: uuid!): languages
+    "delete data from the table: \"states\""
+    delete_states(
+        "filter the rows which have to be deleted"
+        where: states_bool_exp!
+    ): states_mutation_response
+    "delete single row from the table: \"states\""
+    delete_states_by_pk(id: smallint!): states
+    "delete data from the table: \"users\""
+    delete_users(
+        "filter the rows which have to be deleted"
+        where: users_bool_exp!
+    ): users_mutation_response
+    "delete single row from the table: \"users\""
+    delete_users_by_pk(id: uuid!): users
+    "insert data into the table: \"addresses\""
+    insert_addresses(
+        "the rows to be inserted"
+        objects: [addresses_insert_input!]!,
+        "on conflict condition"
+        on_conflict: addresses_on_conflict
+    ): addresses_mutation_response
+    "insert a single row into the table: \"addresses\""
+    insert_addresses_one(
+        "the row to be inserted"
+        object: addresses_insert_input!,
+        "on conflict condition"
+        on_conflict: addresses_on_conflict
+    ): addresses
+    "insert data into the table: \"auth.account_providers\""
+    insert_auth_account_providers(
+        "the rows to be inserted"
+        objects: [auth_account_providers_insert_input!]!,
+        "on conflict condition"
+        on_conflict: auth_account_providers_on_conflict
+    ): auth_account_providers_mutation_response
+    "insert a single row into the table: \"auth.account_providers\""
+    insert_auth_account_providers_one(
+        "the row to be inserted"
+        object: auth_account_providers_insert_input!,
+        "on conflict condition"
+        on_conflict: auth_account_providers_on_conflict
+    ): auth_account_providers
+    "insert data into the table: \"auth.account_roles\""
+    insert_auth_account_roles(
+        "the rows to be inserted"
+        objects: [auth_account_roles_insert_input!]!,
+        "on conflict condition"
+        on_conflict: auth_account_roles_on_conflict
+    ): auth_account_roles_mutation_response
+    "insert a single row into the table: \"auth.account_roles\""
+    insert_auth_account_roles_one(
+        "the row to be inserted"
+        object: auth_account_roles_insert_input!,
+        "on conflict condition"
+        on_conflict: auth_account_roles_on_conflict
+    ): auth_account_roles
+    "insert data into the table: \"auth.accounts\""
+    insert_auth_accounts(
+        "the rows to be inserted"
+        objects: [auth_accounts_insert_input!]!,
+        "on conflict condition"
+        on_conflict: auth_accounts_on_conflict
+    ): auth_accounts_mutation_response
+    "insert a single row into the table: \"auth.accounts\""
+    insert_auth_accounts_one(
+        "the row to be inserted"
+        object: auth_accounts_insert_input!,
+        "on conflict condition"
+        on_conflict: auth_accounts_on_conflict
+    ): auth_accounts
+    "insert data into the table: \"auth.providers\""
+    insert_auth_providers(
+        "the rows to be inserted"
+        objects: [auth_providers_insert_input!]!,
+        "on conflict condition"
+        on_conflict: auth_providers_on_conflict
+    ): auth_providers_mutation_response
+    "insert a single row into the table: \"auth.providers\""
+    insert_auth_providers_one(
+        "the row to be inserted"
+        object: auth_providers_insert_input!,
+        "on conflict condition"
+        on_conflict: auth_providers_on_conflict
+    ): auth_providers
+    "insert data into the table: \"auth.refresh_tokens\""
+    insert_auth_refresh_tokens(
+        "the rows to be inserted"
+        objects: [auth_refresh_tokens_insert_input!]!,
+        "on conflict condition"
+        on_conflict: auth_refresh_tokens_on_conflict
+    ): auth_refresh_tokens_mutation_response
+    "insert a single row into the table: \"auth.refresh_tokens\""
+    insert_auth_refresh_tokens_one(
+        "the row to be inserted"
+        object: auth_refresh_tokens_insert_input!,
+        "on conflict condition"
+        on_conflict: auth_refresh_tokens_on_conflict
+    ): auth_refresh_tokens
+    "insert data into the table: \"auth.roles\""
+    insert_auth_roles(
+        "the rows to be inserted"
+        objects: [auth_roles_insert_input!]!,
+        "on conflict condition"
+        on_conflict: auth_roles_on_conflict
+    ): auth_roles_mutation_response
+    "insert a single row into the table: \"auth.roles\""
+    insert_auth_roles_one(
+        "the row to be inserted"
+        object: auth_roles_insert_input!,
+        "on conflict condition"
+        on_conflict: auth_roles_on_conflict
+    ): auth_roles
+    "insert data into the table: \"businesses\""
+    insert_businesses(
+        "the rows to be inserted"
+        objects: [businesses_insert_input!]!,
+        "on conflict condition"
+        on_conflict: businesses_on_conflict
+    ): businesses_mutation_response
+    "insert a single row into the table: \"businesses\""
+    insert_businesses_one(
+        "the row to be inserted"
+        object: businesses_insert_input!,
+        "on conflict condition"
+        on_conflict: businesses_on_conflict
+    ): businesses
+    "insert data into the table: \"categories\""
+    insert_categories(
+        "the rows to be inserted"
+        objects: [categories_insert_input!]!,
+        "on conflict condition"
+        on_conflict: categories_on_conflict
+    ): categories_mutation_response
+    "insert a single row into the table: \"categories\""
+    insert_categories_one(
+        "the row to be inserted"
+        object: categories_insert_input!,
+        "on conflict condition"
+        on_conflict: categories_on_conflict
+    ): categories
+    "insert data into the table: \"categories_translations\""
+    insert_categories_translations(
+        "the rows to be inserted"
+        objects: [categories_translations_insert_input!]!,
+        "on conflict condition"
+        on_conflict: categories_translations_on_conflict
+    ): categories_translations_mutation_response
+    "insert a single row into the table: \"categories_translations\""
+    insert_categories_translations_one(
+        "the row to be inserted"
+        object: categories_translations_insert_input!,
+        "on conflict condition"
+        on_conflict: categories_translations_on_conflict
+    ): categories_translations
+    "insert data into the table: \"countries\""
+    insert_countries(
+        "the rows to be inserted"
+        objects: [countries_insert_input!]!,
+        "on conflict condition"
+        on_conflict: countries_on_conflict
+    ): countries_mutation_response
+    "insert a single row into the table: \"countries\""
+    insert_countries_one(
+        "the row to be inserted"
+        object: countries_insert_input!,
+        "on conflict condition"
+        on_conflict: countries_on_conflict
+    ): countries
+    "insert data into the table: \"languages\""
+    insert_languages(
+        "the rows to be inserted"
+        objects: [languages_insert_input!]!,
+        "on conflict condition"
+        on_conflict: languages_on_conflict
+    ): languages_mutation_response
+    "insert a single row into the table: \"languages\""
+    insert_languages_one(
+        "the row to be inserted"
+        object: languages_insert_input!,
+        "on conflict condition"
+        on_conflict: languages_on_conflict
+    ): languages
+    "insert data into the table: \"states\""
+    insert_states(
+        "the rows to be inserted"
+        objects: [states_insert_input!]!,
+        "on conflict condition"
+        on_conflict: states_on_conflict
+    ): states_mutation_response
+    "insert a single row into the table: \"states\""
+    insert_states_one(
+        "the row to be inserted"
+        object: states_insert_input!,
+        "on conflict condition"
+        on_conflict: states_on_conflict
+    ): states
+    "insert data into the table: \"users\""
+    insert_users(
+        "the rows to be inserted"
+        objects: [users_insert_input!]!,
+        "on conflict condition"
+        on_conflict: users_on_conflict
+    ): users_mutation_response
+    "insert a single row into the table: \"users\""
+    insert_users_one(
+        "the row to be inserted"
+        object: users_insert_input!,
+        "on conflict condition"
+        on_conflict: users_on_conflict
+    ): users
+    "update data of the table: \"addresses\""
+    update_addresses(
+        "increments the integer columns with given value of the filtered values"
+        _inc: addresses_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: addresses_set_input,
+        "filter the rows which have to be updated"
+        where: addresses_bool_exp!
+    ): addresses_mutation_response
+    "update single row of the table: \"addresses\""
+    update_addresses_by_pk(
+        "increments the integer columns with given value of the filtered values"
+        _inc: addresses_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: addresses_set_input,
+        pk_columns: addresses_pk_columns_input!
+    ): addresses
+    "update data of the table: \"auth.account_providers\""
+    update_auth_account_providers(
+        "sets the columns of the filtered rows to the given values"
+        _set: auth_account_providers_set_input,
+        "filter the rows which have to be updated"
+        where: auth_account_providers_bool_exp!
+    ): auth_account_providers_mutation_response
+    "update single row of the table: \"auth.account_providers\""
+    update_auth_account_providers_by_pk(
+        "sets the columns of the filtered rows to the given values"
+        _set: auth_account_providers_set_input,
+        pk_columns: auth_account_providers_pk_columns_input!
+    ): auth_account_providers
+    "update data of the table: \"auth.account_roles\""
+    update_auth_account_roles(
+        "sets the columns of the filtered rows to the given values"
+        _set: auth_account_roles_set_input,
+        "filter the rows which have to be updated"
+        where: auth_account_roles_bool_exp!
+    ): auth_account_roles_mutation_response
+    "update single row of the table: \"auth.account_roles\""
+    update_auth_account_roles_by_pk(
+        "sets the columns of the filtered rows to the given values"
+        _set: auth_account_roles_set_input,
+        pk_columns: auth_account_roles_pk_columns_input!
+    ): auth_account_roles
+    "update data of the table: \"auth.accounts\""
+    update_auth_accounts(
+        "append existing jsonb value of filtered columns with new jsonb value"
+        _append: auth_accounts_append_input,
+        "delete the field or element with specified path (for JSON arrays, negative integers count from the end)"
+        _delete_at_path: auth_accounts_delete_at_path_input,
+        "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array"
+        _delete_elem: auth_accounts_delete_elem_input,
+        "delete key/value pair or string element. key/value pairs are matched based on their key value"
+        _delete_key: auth_accounts_delete_key_input,
+        "prepend existing jsonb value of filtered columns with new jsonb value"
+        _prepend: auth_accounts_prepend_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: auth_accounts_set_input,
+        "filter the rows which have to be updated"
+        where: auth_accounts_bool_exp!
+    ): auth_accounts_mutation_response
+    "update single row of the table: \"auth.accounts\""
+    update_auth_accounts_by_pk(
+        "append existing jsonb value of filtered columns with new jsonb value"
+        _append: auth_accounts_append_input,
+        "delete the field or element with specified path (for JSON arrays, negative integers count from the end)"
+        _delete_at_path: auth_accounts_delete_at_path_input,
+        "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array"
+        _delete_elem: auth_accounts_delete_elem_input,
+        "delete key/value pair or string element. key/value pairs are matched based on their key value"
+        _delete_key: auth_accounts_delete_key_input,
+        "prepend existing jsonb value of filtered columns with new jsonb value"
+        _prepend: auth_accounts_prepend_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: auth_accounts_set_input,
+        pk_columns: auth_accounts_pk_columns_input!
+    ): auth_accounts
+    "update data of the table: \"auth.providers\""
+    update_auth_providers(
+        "sets the columns of the filtered rows to the given values"
+        _set: auth_providers_set_input,
+        "filter the rows which have to be updated"
+        where: auth_providers_bool_exp!
+    ): auth_providers_mutation_response
+    "update single row of the table: \"auth.providers\""
+    update_auth_providers_by_pk(
+        "sets the columns of the filtered rows to the given values"
+        _set: auth_providers_set_input,
+        pk_columns: auth_providers_pk_columns_input!
+    ): auth_providers
+    "update data of the table: \"auth.refresh_tokens\""
+    update_auth_refresh_tokens(
+        "sets the columns of the filtered rows to the given values"
+        _set: auth_refresh_tokens_set_input,
+        "filter the rows which have to be updated"
+        where: auth_refresh_tokens_bool_exp!
+    ): auth_refresh_tokens_mutation_response
+    "update single row of the table: \"auth.refresh_tokens\""
+    update_auth_refresh_tokens_by_pk(
+        "sets the columns of the filtered rows to the given values"
+        _set: auth_refresh_tokens_set_input,
+        pk_columns: auth_refresh_tokens_pk_columns_input!
+    ): auth_refresh_tokens
+    "update data of the table: \"auth.roles\""
+    update_auth_roles(
+        "sets the columns of the filtered rows to the given values"
+        _set: auth_roles_set_input,
+        "filter the rows which have to be updated"
+        where: auth_roles_bool_exp!
+    ): auth_roles_mutation_response
+    "update single row of the table: \"auth.roles\""
+    update_auth_roles_by_pk(
+        "sets the columns of the filtered rows to the given values"
+        _set: auth_roles_set_input,
+        pk_columns: auth_roles_pk_columns_input!
+    ): auth_roles
+    "update data of the table: \"businesses\""
+    update_businesses(
+        "sets the columns of the filtered rows to the given values"
+        _set: businesses_set_input,
+        "filter the rows which have to be updated"
+        where: businesses_bool_exp!
+    ): businesses_mutation_response
+    "update single row of the table: \"businesses\""
+    update_businesses_by_pk(
+        "sets the columns of the filtered rows to the given values"
+        _set: businesses_set_input,
+        pk_columns: businesses_pk_columns_input!
+    ): businesses
+    "update data of the table: \"categories\""
+    update_categories(
+        "sets the columns of the filtered rows to the given values"
+        _set: categories_set_input,
+        "filter the rows which have to be updated"
+        where: categories_bool_exp!
+    ): categories_mutation_response
+    "update single row of the table: \"categories\""
+    update_categories_by_pk(
+        "sets the columns of the filtered rows to the given values"
+        _set: categories_set_input,
+        pk_columns: categories_pk_columns_input!
+    ): categories
+    "update data of the table: \"categories_translations\""
+    update_categories_translations(
+        "sets the columns of the filtered rows to the given values"
+        _set: categories_translations_set_input,
+        "filter the rows which have to be updated"
+        where: categories_translations_bool_exp!
+    ): categories_translations_mutation_response
+    "update single row of the table: \"categories_translations\""
+    update_categories_translations_by_pk(
+        "sets the columns of the filtered rows to the given values"
+        _set: categories_translations_set_input,
+        pk_columns: categories_translations_pk_columns_input!
+    ): categories_translations
+    "update data of the table: \"countries\""
+    update_countries(
+        "increments the integer columns with given value of the filtered values"
+        _inc: countries_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: countries_set_input,
+        "filter the rows which have to be updated"
+        where: countries_bool_exp!
+    ): countries_mutation_response
+    "update single row of the table: \"countries\""
+    update_countries_by_pk(
+        "increments the integer columns with given value of the filtered values"
+        _inc: countries_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: countries_set_input,
+        pk_columns: countries_pk_columns_input!
+    ): countries
+    "update data of the table: \"languages\""
+    update_languages(
+        "sets the columns of the filtered rows to the given values"
+        _set: languages_set_input,
+        "filter the rows which have to be updated"
+        where: languages_bool_exp!
+    ): languages_mutation_response
+    "update single row of the table: \"languages\""
+    update_languages_by_pk(
+        "sets the columns of the filtered rows to the given values"
+        _set: languages_set_input,
+        pk_columns: languages_pk_columns_input!
+    ): languages
+    "update data of the table: \"states\""
+    update_states(
+        "increments the integer columns with given value of the filtered values"
+        _inc: states_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: states_set_input,
+        "filter the rows which have to be updated"
+        where: states_bool_exp!
+    ): states_mutation_response
+    "update single row of the table: \"states\""
+    update_states_by_pk(
+        "increments the integer columns with given value of the filtered values"
+        _inc: states_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: states_set_input,
+        pk_columns: states_pk_columns_input!
+    ): states
+    "update data of the table: \"users\""
+    update_users(
+        "sets the columns of the filtered rows to the given values"
+        _set: users_set_input,
+        "filter the rows which have to be updated"
+        where: users_bool_exp!
+    ): users_mutation_response
+    "update single row of the table: \"users\""
+    update_users_by_pk(
+        "sets the columns of the filtered rows to the given values"
+        _set: users_set_input,
+        pk_columns: users_pk_columns_input!
+    ): users
+}
+
+"query root"
+type query_root {
+    "fetch data from the table: \"addresses\""
+    addresses(
+        "distinct select on columns"
+        distinct_on: [addresses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [addresses_order_by!],
+        "filter the rows returned"
+        where: addresses_bool_exp
+    ): [addresses!]!
+    "fetch aggregated fields from the table: \"addresses\""
+    addresses_aggregate(
+        "distinct select on columns"
+        distinct_on: [addresses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [addresses_order_by!],
+        "filter the rows returned"
+        where: addresses_bool_exp
+    ): addresses_aggregate!
+    "fetch data from the table: \"addresses\" using primary key columns"
+    addresses_by_pk(id: uuid!): addresses
+    "fetch data from the table: \"auth.account_providers\""
+    auth_account_providers(
+        "distinct select on columns"
+        distinct_on: [auth_account_providers_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_providers_order_by!],
+        "filter the rows returned"
+        where: auth_account_providers_bool_exp
+    ): [auth_account_providers!]!
+    "fetch aggregated fields from the table: \"auth.account_providers\""
+    auth_account_providers_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_account_providers_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_providers_order_by!],
+        "filter the rows returned"
+        where: auth_account_providers_bool_exp
+    ): auth_account_providers_aggregate!
+    "fetch data from the table: \"auth.account_providers\" using primary key columns"
+    auth_account_providers_by_pk(id: uuid!): auth_account_providers
+    "fetch data from the table: \"auth.account_roles\""
+    auth_account_roles(
+        "distinct select on columns"
+        distinct_on: [auth_account_roles_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_roles_order_by!],
+        "filter the rows returned"
+        where: auth_account_roles_bool_exp
+    ): [auth_account_roles!]!
+    "fetch aggregated fields from the table: \"auth.account_roles\""
+    auth_account_roles_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_account_roles_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_roles_order_by!],
+        "filter the rows returned"
+        where: auth_account_roles_bool_exp
+    ): auth_account_roles_aggregate!
+    "fetch data from the table: \"auth.account_roles\" using primary key columns"
+    auth_account_roles_by_pk(id: uuid!): auth_account_roles
+    "fetch data from the table: \"auth.accounts\""
+    auth_accounts(
+        "distinct select on columns"
+        distinct_on: [auth_accounts_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_accounts_order_by!],
+        "filter the rows returned"
+        where: auth_accounts_bool_exp
+    ): [auth_accounts!]!
+    "fetch aggregated fields from the table: \"auth.accounts\""
+    auth_accounts_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_accounts_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_accounts_order_by!],
+        "filter the rows returned"
+        where: auth_accounts_bool_exp
+    ): auth_accounts_aggregate!
+    "fetch data from the table: \"auth.accounts\" using primary key columns"
+    auth_accounts_by_pk(id: uuid!): auth_accounts
+    "fetch data from the table: \"auth.providers\""
+    auth_providers(
+        "distinct select on columns"
+        distinct_on: [auth_providers_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_providers_order_by!],
+        "filter the rows returned"
+        where: auth_providers_bool_exp
+    ): [auth_providers!]!
+    "fetch aggregated fields from the table: \"auth.providers\""
+    auth_providers_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_providers_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_providers_order_by!],
+        "filter the rows returned"
+        where: auth_providers_bool_exp
+    ): auth_providers_aggregate!
+    "fetch data from the table: \"auth.providers\" using primary key columns"
+    auth_providers_by_pk(provider: String!): auth_providers
+    "fetch data from the table: \"auth.refresh_tokens\""
+    auth_refresh_tokens(
+        "distinct select on columns"
+        distinct_on: [auth_refresh_tokens_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_refresh_tokens_order_by!],
+        "filter the rows returned"
+        where: auth_refresh_tokens_bool_exp
+    ): [auth_refresh_tokens!]!
+    "fetch aggregated fields from the table: \"auth.refresh_tokens\""
+    auth_refresh_tokens_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_refresh_tokens_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_refresh_tokens_order_by!],
+        "filter the rows returned"
+        where: auth_refresh_tokens_bool_exp
+    ): auth_refresh_tokens_aggregate!
+    "fetch data from the table: \"auth.refresh_tokens\" using primary key columns"
+    auth_refresh_tokens_by_pk(refresh_token: uuid!): auth_refresh_tokens
+    "fetch data from the table: \"auth.roles\""
+    auth_roles(
+        "distinct select on columns"
+        distinct_on: [auth_roles_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_roles_order_by!],
+        "filter the rows returned"
+        where: auth_roles_bool_exp
+    ): [auth_roles!]!
+    "fetch aggregated fields from the table: \"auth.roles\""
+    auth_roles_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_roles_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_roles_order_by!],
+        "filter the rows returned"
+        where: auth_roles_bool_exp
+    ): auth_roles_aggregate!
+    "fetch data from the table: \"auth.roles\" using primary key columns"
+    auth_roles_by_pk(role: String!): auth_roles
+    "fetch data from the table: \"businesses\""
+    businesses(
+        "distinct select on columns"
+        distinct_on: [businesses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [businesses_order_by!],
+        "filter the rows returned"
+        where: businesses_bool_exp
+    ): [businesses!]!
+    "fetch aggregated fields from the table: \"businesses\""
+    businesses_aggregate(
+        "distinct select on columns"
+        distinct_on: [businesses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [businesses_order_by!],
+        "filter the rows returned"
+        where: businesses_bool_exp
+    ): businesses_aggregate!
+    "fetch data from the table: \"businesses\" using primary key columns"
+    businesses_by_pk(id: uuid!): businesses
+    "fetch data from the table: \"categories\""
+    categories(
+        "distinct select on columns"
+        distinct_on: [categories_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_order_by!],
+        "filter the rows returned"
+        where: categories_bool_exp
+    ): [categories!]!
+    "fetch aggregated fields from the table: \"categories\""
+    categories_aggregate(
+        "distinct select on columns"
+        distinct_on: [categories_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_order_by!],
+        "filter the rows returned"
+        where: categories_bool_exp
+    ): categories_aggregate!
+    "fetch data from the table: \"categories\" using primary key columns"
+    categories_by_pk(id: uuid!): categories
+    "fetch data from the table: \"categories_translations\""
+    categories_translations(
+        "distinct select on columns"
+        distinct_on: [categories_translations_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_translations_order_by!],
+        "filter the rows returned"
+        where: categories_translations_bool_exp
+    ): [categories_translations!]!
+    "fetch aggregated fields from the table: \"categories_translations\""
+    categories_translations_aggregate(
+        "distinct select on columns"
+        distinct_on: [categories_translations_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_translations_order_by!],
+        "filter the rows returned"
+        where: categories_translations_bool_exp
+    ): categories_translations_aggregate!
+    "fetch data from the table: \"categories_translations\" using primary key columns"
+    categories_translations_by_pk(id: uuid!): categories_translations
+    "fetch data from the table: \"countries\""
+    countries(
+        "distinct select on columns"
+        distinct_on: [countries_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [countries_order_by!],
+        "filter the rows returned"
+        where: countries_bool_exp
+    ): [countries!]!
+    "fetch aggregated fields from the table: \"countries\""
+    countries_aggregate(
+        "distinct select on columns"
+        distinct_on: [countries_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [countries_order_by!],
+        "filter the rows returned"
+        where: countries_bool_exp
+    ): countries_aggregate!
+    "fetch data from the table: \"countries\" using primary key columns"
+    countries_by_pk(id: smallint!): countries
+    "fetch data from the table: \"languages\""
+    languages(
+        "distinct select on columns"
+        distinct_on: [languages_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [languages_order_by!],
+        "filter the rows returned"
+        where: languages_bool_exp
+    ): [languages!]!
+    "fetch aggregated fields from the table: \"languages\""
+    languages_aggregate(
+        "distinct select on columns"
+        distinct_on: [languages_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [languages_order_by!],
+        "filter the rows returned"
+        where: languages_bool_exp
+    ): languages_aggregate!
+    "fetch data from the table: \"languages\" using primary key columns"
+    languages_by_pk(id: uuid!): languages
+    "fetch data from the table: \"states\""
+    states(
+        "distinct select on columns"
+        distinct_on: [states_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [states_order_by!],
+        "filter the rows returned"
+        where: states_bool_exp
+    ): [states!]!
+    "fetch aggregated fields from the table: \"states\""
+    states_aggregate(
+        "distinct select on columns"
+        distinct_on: [states_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [states_order_by!],
+        "filter the rows returned"
+        where: states_bool_exp
+    ): states_aggregate!
+    "fetch data from the table: \"states\" using primary key columns"
+    states_by_pk(id: smallint!): states
+    "fetch data from the table: \"users\""
+    users(
+        "distinct select on columns"
+        distinct_on: [users_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [users_order_by!],
+        "filter the rows returned"
+        where: users_bool_exp
+    ): [users!]!
+    "fetch aggregated fields from the table: \"users\""
+    users_aggregate(
+        "distinct select on columns"
+        distinct_on: [users_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [users_order_by!],
+        "filter the rows returned"
+        where: users_bool_exp
+    ): users_aggregate!
+    "fetch data from the table: \"users\" using primary key columns"
+    users_by_pk(id: uuid!): users
+}
+
+"columns and relationships of \"states\""
+type states {
+    abbreviation: String!
+    "An array relationship"
+    addresses(
+        "distinct select on columns"
+        distinct_on: [addresses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [addresses_order_by!],
+        "filter the rows returned"
+        where: addresses_bool_exp
+    ): [addresses!]!
+    "An aggregated array relationship"
+    addresses_aggregate(
+        "distinct select on columns"
+        distinct_on: [addresses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [addresses_order_by!],
+        "filter the rows returned"
+        where: addresses_bool_exp
+    ): addresses_aggregate!
+    "An object relationship"
+    country: countries!
+    country_id: smallint!
+    id: smallint!
+    name: String!
+}
+
+"aggregated selection of \"states\""
+type states_aggregate {
+    aggregate: states_aggregate_fields
+    nodes: [states!]!
+}
+
+"aggregate fields of \"states\""
+type states_aggregate_fields {
+    avg: states_avg_fields
+    count(columns: [states_select_column!], distinct: Boolean): Int
+    max: states_max_fields
+    min: states_min_fields
+    stddev: states_stddev_fields
+    stddev_pop: states_stddev_pop_fields
+    stddev_samp: states_stddev_samp_fields
+    sum: states_sum_fields
+    var_pop: states_var_pop_fields
+    var_samp: states_var_samp_fields
+    variance: states_variance_fields
+}
+
+"aggregate avg on columns"
+type states_avg_fields {
+    country_id: Float
+    id: Float
+}
+
+"aggregate max on columns"
+type states_max_fields {
+    abbreviation: String
+    country_id: smallint
+    id: smallint
+    name: String
+}
+
+"aggregate min on columns"
+type states_min_fields {
+    abbreviation: String
+    country_id: smallint
+    id: smallint
+    name: String
+}
+
+"response of any mutation on the table \"states\""
+type states_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [states!]!
+}
+
+"aggregate stddev on columns"
+type states_stddev_fields {
+    country_id: Float
+    id: Float
+}
+
+"aggregate stddev_pop on columns"
+type states_stddev_pop_fields {
+    country_id: Float
+    id: Float
+}
+
+"aggregate stddev_samp on columns"
+type states_stddev_samp_fields {
+    country_id: Float
+    id: Float
+}
+
+"aggregate sum on columns"
+type states_sum_fields {
+    country_id: smallint
+    id: smallint
+}
+
+"aggregate var_pop on columns"
+type states_var_pop_fields {
+    country_id: Float
+    id: Float
+}
+
+"aggregate var_samp on columns"
+type states_var_samp_fields {
+    country_id: Float
+    id: Float
+}
+
+"aggregate variance on columns"
+type states_variance_fields {
+    country_id: Float
+    id: Float
+}
+
+"subscription root"
+type subscription_root {
+    "fetch data from the table: \"addresses\""
+    addresses(
+        "distinct select on columns"
+        distinct_on: [addresses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [addresses_order_by!],
+        "filter the rows returned"
+        where: addresses_bool_exp
+    ): [addresses!]!
+    "fetch aggregated fields from the table: \"addresses\""
+    addresses_aggregate(
+        "distinct select on columns"
+        distinct_on: [addresses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [addresses_order_by!],
+        "filter the rows returned"
+        where: addresses_bool_exp
+    ): addresses_aggregate!
+    "fetch data from the table: \"addresses\" using primary key columns"
+    addresses_by_pk(id: uuid!): addresses
+    "fetch data from the table: \"auth.account_providers\""
+    auth_account_providers(
+        "distinct select on columns"
+        distinct_on: [auth_account_providers_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_providers_order_by!],
+        "filter the rows returned"
+        where: auth_account_providers_bool_exp
+    ): [auth_account_providers!]!
+    "fetch aggregated fields from the table: \"auth.account_providers\""
+    auth_account_providers_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_account_providers_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_providers_order_by!],
+        "filter the rows returned"
+        where: auth_account_providers_bool_exp
+    ): auth_account_providers_aggregate!
+    "fetch data from the table: \"auth.account_providers\" using primary key columns"
+    auth_account_providers_by_pk(id: uuid!): auth_account_providers
+    "fetch data from the table: \"auth.account_roles\""
+    auth_account_roles(
+        "distinct select on columns"
+        distinct_on: [auth_account_roles_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_roles_order_by!],
+        "filter the rows returned"
+        where: auth_account_roles_bool_exp
+    ): [auth_account_roles!]!
+    "fetch aggregated fields from the table: \"auth.account_roles\""
+    auth_account_roles_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_account_roles_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_account_roles_order_by!],
+        "filter the rows returned"
+        where: auth_account_roles_bool_exp
+    ): auth_account_roles_aggregate!
+    "fetch data from the table: \"auth.account_roles\" using primary key columns"
+    auth_account_roles_by_pk(id: uuid!): auth_account_roles
+    "fetch data from the table: \"auth.accounts\""
+    auth_accounts(
+        "distinct select on columns"
+        distinct_on: [auth_accounts_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_accounts_order_by!],
+        "filter the rows returned"
+        where: auth_accounts_bool_exp
+    ): [auth_accounts!]!
+    "fetch aggregated fields from the table: \"auth.accounts\""
+    auth_accounts_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_accounts_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_accounts_order_by!],
+        "filter the rows returned"
+        where: auth_accounts_bool_exp
+    ): auth_accounts_aggregate!
+    "fetch data from the table: \"auth.accounts\" using primary key columns"
+    auth_accounts_by_pk(id: uuid!): auth_accounts
+    "fetch data from the table: \"auth.providers\""
+    auth_providers(
+        "distinct select on columns"
+        distinct_on: [auth_providers_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_providers_order_by!],
+        "filter the rows returned"
+        where: auth_providers_bool_exp
+    ): [auth_providers!]!
+    "fetch aggregated fields from the table: \"auth.providers\""
+    auth_providers_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_providers_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_providers_order_by!],
+        "filter the rows returned"
+        where: auth_providers_bool_exp
+    ): auth_providers_aggregate!
+    "fetch data from the table: \"auth.providers\" using primary key columns"
+    auth_providers_by_pk(provider: String!): auth_providers
+    "fetch data from the table: \"auth.refresh_tokens\""
+    auth_refresh_tokens(
+        "distinct select on columns"
+        distinct_on: [auth_refresh_tokens_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_refresh_tokens_order_by!],
+        "filter the rows returned"
+        where: auth_refresh_tokens_bool_exp
+    ): [auth_refresh_tokens!]!
+    "fetch aggregated fields from the table: \"auth.refresh_tokens\""
+    auth_refresh_tokens_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_refresh_tokens_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_refresh_tokens_order_by!],
+        "filter the rows returned"
+        where: auth_refresh_tokens_bool_exp
+    ): auth_refresh_tokens_aggregate!
+    "fetch data from the table: \"auth.refresh_tokens\" using primary key columns"
+    auth_refresh_tokens_by_pk(refresh_token: uuid!): auth_refresh_tokens
+    "fetch data from the table: \"auth.roles\""
+    auth_roles(
+        "distinct select on columns"
+        distinct_on: [auth_roles_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_roles_order_by!],
+        "filter the rows returned"
+        where: auth_roles_bool_exp
+    ): [auth_roles!]!
+    "fetch aggregated fields from the table: \"auth.roles\""
+    auth_roles_aggregate(
+        "distinct select on columns"
+        distinct_on: [auth_roles_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [auth_roles_order_by!],
+        "filter the rows returned"
+        where: auth_roles_bool_exp
+    ): auth_roles_aggregate!
+    "fetch data from the table: \"auth.roles\" using primary key columns"
+    auth_roles_by_pk(role: String!): auth_roles
+    "fetch data from the table: \"businesses\""
+    businesses(
+        "distinct select on columns"
+        distinct_on: [businesses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [businesses_order_by!],
+        "filter the rows returned"
+        where: businesses_bool_exp
+    ): [businesses!]!
+    "fetch aggregated fields from the table: \"businesses\""
+    businesses_aggregate(
+        "distinct select on columns"
+        distinct_on: [businesses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [businesses_order_by!],
+        "filter the rows returned"
+        where: businesses_bool_exp
+    ): businesses_aggregate!
+    "fetch data from the table: \"businesses\" using primary key columns"
+    businesses_by_pk(id: uuid!): businesses
+    "fetch data from the table: \"categories\""
+    categories(
+        "distinct select on columns"
+        distinct_on: [categories_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_order_by!],
+        "filter the rows returned"
+        where: categories_bool_exp
+    ): [categories!]!
+    "fetch aggregated fields from the table: \"categories\""
+    categories_aggregate(
+        "distinct select on columns"
+        distinct_on: [categories_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_order_by!],
+        "filter the rows returned"
+        where: categories_bool_exp
+    ): categories_aggregate!
+    "fetch data from the table: \"categories\" using primary key columns"
+    categories_by_pk(id: uuid!): categories
+    "fetch data from the table: \"categories_translations\""
+    categories_translations(
+        "distinct select on columns"
+        distinct_on: [categories_translations_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_translations_order_by!],
+        "filter the rows returned"
+        where: categories_translations_bool_exp
+    ): [categories_translations!]!
+    "fetch aggregated fields from the table: \"categories_translations\""
+    categories_translations_aggregate(
+        "distinct select on columns"
+        distinct_on: [categories_translations_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_translations_order_by!],
+        "filter the rows returned"
+        where: categories_translations_bool_exp
+    ): categories_translations_aggregate!
+    "fetch data from the table: \"categories_translations\" using primary key columns"
+    categories_translations_by_pk(id: uuid!): categories_translations
+    "fetch data from the table: \"countries\""
+    countries(
+        "distinct select on columns"
+        distinct_on: [countries_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [countries_order_by!],
+        "filter the rows returned"
+        where: countries_bool_exp
+    ): [countries!]!
+    "fetch aggregated fields from the table: \"countries\""
+    countries_aggregate(
+        "distinct select on columns"
+        distinct_on: [countries_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [countries_order_by!],
+        "filter the rows returned"
+        where: countries_bool_exp
+    ): countries_aggregate!
+    "fetch data from the table: \"countries\" using primary key columns"
+    countries_by_pk(id: smallint!): countries
+    "fetch data from the table: \"languages\""
+    languages(
+        "distinct select on columns"
+        distinct_on: [languages_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [languages_order_by!],
+        "filter the rows returned"
+        where: languages_bool_exp
+    ): [languages!]!
+    "fetch aggregated fields from the table: \"languages\""
+    languages_aggregate(
+        "distinct select on columns"
+        distinct_on: [languages_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [languages_order_by!],
+        "filter the rows returned"
+        where: languages_bool_exp
+    ): languages_aggregate!
+    "fetch data from the table: \"languages\" using primary key columns"
+    languages_by_pk(id: uuid!): languages
+    "fetch data from the table: \"states\""
+    states(
+        "distinct select on columns"
+        distinct_on: [states_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [states_order_by!],
+        "filter the rows returned"
+        where: states_bool_exp
+    ): [states!]!
+    "fetch aggregated fields from the table: \"states\""
+    states_aggregate(
+        "distinct select on columns"
+        distinct_on: [states_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [states_order_by!],
+        "filter the rows returned"
+        where: states_bool_exp
+    ): states_aggregate!
+    "fetch data from the table: \"states\" using primary key columns"
+    states_by_pk(id: smallint!): states
+    "fetch data from the table: \"users\""
+    users(
+        "distinct select on columns"
+        distinct_on: [users_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [users_order_by!],
+        "filter the rows returned"
+        where: users_bool_exp
+    ): [users!]!
+    "fetch aggregated fields from the table: \"users\""
+    users_aggregate(
+        "distinct select on columns"
+        distinct_on: [users_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [users_order_by!],
+        "filter the rows returned"
+        where: users_bool_exp
+    ): users_aggregate!
+    "fetch data from the table: \"users\" using primary key columns"
+    users_by_pk(id: uuid!): users
+}
+
+"columns and relationships of \"users\""
+type users {
+    "An object relationship"
+    account: auth_accounts
+    "An array relationship"
+    addresses(
+        "distinct select on columns"
+        distinct_on: [addresses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [addresses_order_by!],
+        "filter the rows returned"
+        where: addresses_bool_exp
+    ): [addresses!]!
+    "An aggregated array relationship"
+    addresses_aggregate(
+        "distinct select on columns"
+        distinct_on: [addresses_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [addresses_order_by!],
+        "filter the rows returned"
+        where: addresses_bool_exp
+    ): addresses_aggregate!
+    avatar_url: String
+    "An array relationship"
+    categories(
+        "distinct select on columns"
+        distinct_on: [categories_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_order_by!],
+        "filter the rows returned"
+        where: categories_bool_exp
+    ): [categories!]!
+    "An aggregated array relationship"
+    categories_aggregate(
+        "distinct select on columns"
+        distinct_on: [categories_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_order_by!],
+        "filter the rows returned"
+        where: categories_bool_exp
+    ): categories_aggregate!
+    "An array relationship"
+    categories_translations(
+        "distinct select on columns"
+        distinct_on: [categories_translations_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_translations_order_by!],
+        "filter the rows returned"
+        where: categories_translations_bool_exp
+    ): [categories_translations!]!
+    "An aggregated array relationship"
+    categories_translations_aggregate(
+        "distinct select on columns"
+        distinct_on: [categories_translations_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [categories_translations_order_by!],
+        "filter the rows returned"
+        where: categories_translations_bool_exp
+    ): categories_translations_aggregate!
+    created_at: timestamptz!
+    display_name: String
+    id: uuid!
+    updated_at: timestamptz!
+}
+
+"aggregated selection of \"users\""
+type users_aggregate {
+    aggregate: users_aggregate_fields
+    nodes: [users!]!
+}
+
+"aggregate fields of \"users\""
+type users_aggregate_fields {
+    count(columns: [users_select_column!], distinct: Boolean): Int
+    max: users_max_fields
+    min: users_min_fields
+}
+
+"aggregate max on columns"
+type users_max_fields {
+    avatar_url: String
+    created_at: timestamptz
+    display_name: String
+    id: uuid
+    updated_at: timestamptz
+}
+
+"aggregate min on columns"
+type users_min_fields {
+    avatar_url: String
+    created_at: timestamptz
+    display_name: String
+    id: uuid
+    updated_at: timestamptz
+}
+
+"response of any mutation on the table \"users\""
+type users_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [users!]!
+}
+
+"unique or primary key constraints on table \"addresses\""
+enum addresses_constraint {
+    "unique or primary key constraint"
+    addresses_pkey
+}
+
+"select columns of table \"addresses\""
+enum addresses_select_column {
+    "column name"
+    country_id
+    "column name"
+    id
+    "column name"
+    name
+    "column name"
+    owner_id
+    "column name"
+    state_id
+    "column name"
+    street
+    "column name"
+    zip_code
+}
+
+"update columns of table \"addresses\""
+enum addresses_update_column {
+    "column name"
+    country_id
+    "column name"
+    id
+    "column name"
+    name
+    "column name"
+    owner_id
+    "column name"
+    state_id
+    "column name"
+    street
+    "column name"
+    zip_code
+}
+
+"unique or primary key constraints on table \"auth.account_providers\""
+enum auth_account_providers_constraint {
+    "unique or primary key constraint"
+    account_providers_account_id_auth_provider_key
+    "unique or primary key constraint"
+    account_providers_auth_provider_auth_provider_unique_id_key
+    "unique or primary key constraint"
+    account_providers_pkey
+}
+
+"select columns of table \"auth.account_providers\""
+enum auth_account_providers_select_column {
+    "column name"
+    account_id
+    "column name"
+    auth_provider
+    "column name"
+    auth_provider_unique_id
+    "column name"
+    created_at
+    "column name"
+    id
+    "column name"
+    updated_at
+}
+
+"update columns of table \"auth.account_providers\""
+enum auth_account_providers_update_column {
+    "column name"
+    account_id
+    "column name"
+    auth_provider
+    "column name"
+    auth_provider_unique_id
+    "column name"
+    created_at
+    "column name"
+    id
+    "column name"
+    updated_at
+}
+
+"unique or primary key constraints on table \"auth.account_roles\""
+enum auth_account_roles_constraint {
+    "unique or primary key constraint"
+    account_roles_pkey
+    "unique or primary key constraint"
+    user_roles_account_id_role_key
+}
+
+"select columns of table \"auth.account_roles\""
+enum auth_account_roles_select_column {
+    "column name"
+    account_id
+    "column name"
+    created_at
+    "column name"
+    id
+    "column name"
+    role
+}
+
+"update columns of table \"auth.account_roles\""
+enum auth_account_roles_update_column {
+    "column name"
+    account_id
+    "column name"
+    created_at
+    "column name"
+    id
+    "column name"
+    role
+}
+
+"unique or primary key constraints on table \"auth.accounts\""
+enum auth_accounts_constraint {
+    "unique or primary key constraint"
+    accounts_email_key
+    "unique or primary key constraint"
+    accounts_new_email_key
+    "unique or primary key constraint"
+    accounts_pkey
+    "unique or primary key constraint"
+    accounts_user_id_key
+}
+
+"select columns of table \"auth.accounts\""
+enum auth_accounts_select_column {
+    "column name"
+    active
+    "column name"
+    created_at
+    "column name"
+    custom_register_data
+    "column name"
+    default_role
+    "column name"
+    email
+    "column name"
+    id
+    "column name"
+    is_anonymous
+    "column name"
+    mfa_enabled
+    "column name"
+    new_email
+    "column name"
+    otp_secret
+    "column name"
+    password_hash
+    "column name"
+    ticket
+    "column name"
+    ticket_expires_at
+    "column name"
+    updated_at
+    "column name"
+    user_id
+}
+
+"update columns of table \"auth.accounts\""
+enum auth_accounts_update_column {
+    "column name"
+    active
+    "column name"
+    created_at
+    "column name"
+    custom_register_data
+    "column name"
+    default_role
+    "column name"
+    email
+    "column name"
+    id
+    "column name"
+    is_anonymous
+    "column name"
+    mfa_enabled
+    "column name"
+    new_email
+    "column name"
+    otp_secret
+    "column name"
+    password_hash
+    "column name"
+    ticket
+    "column name"
+    ticket_expires_at
+    "column name"
+    updated_at
+    "column name"
+    user_id
+}
+
+"unique or primary key constraints on table \"auth.providers\""
+enum auth_providers_constraint {
+    "unique or primary key constraint"
+    providers_pkey
+}
+
+"select columns of table \"auth.providers\""
+enum auth_providers_select_column {
+    "column name"
+    provider
+}
+
+"update columns of table \"auth.providers\""
+enum auth_providers_update_column {
+    "column name"
+    provider
+}
+
+"unique or primary key constraints on table \"auth.refresh_tokens\""
+enum auth_refresh_tokens_constraint {
+    "unique or primary key constraint"
+    refresh_tokens_pkey
+}
+
+"select columns of table \"auth.refresh_tokens\""
+enum auth_refresh_tokens_select_column {
+    "column name"
+    account_id
+    "column name"
+    created_at
+    "column name"
+    expires_at
+    "column name"
+    refresh_token
+}
+
+"update columns of table \"auth.refresh_tokens\""
+enum auth_refresh_tokens_update_column {
+    "column name"
+    account_id
+    "column name"
+    created_at
+    "column name"
+    expires_at
+    "column name"
+    refresh_token
+}
+
+"unique or primary key constraints on table \"auth.roles\""
+enum auth_roles_constraint {
+    "unique or primary key constraint"
+    roles_pkey
+}
+
+"select columns of table \"auth.roles\""
+enum auth_roles_select_column {
+    "column name"
+    role
+}
+
+"update columns of table \"auth.roles\""
+enum auth_roles_update_column {
+    "column name"
+    role
+}
+
+"unique or primary key constraints on table \"businesses\""
+enum businesses_constraint {
+    "unique or primary key constraint"
+    businesses_pkey
+}
+
+"select columns of table \"businesses\""
+enum businesses_select_column {
+    "column name"
+    address_id
+    "column name"
+    category_id
+    "column name"
+    description
+    "column name"
+    email_address
+    "column name"
+    id
+    "column name"
+    name
+    "column name"
+    owner_id
+}
+
+"update columns of table \"businesses\""
+enum businesses_update_column {
+    "column name"
+    address_id
+    "column name"
+    category_id
+    "column name"
+    description
+    "column name"
+    email_address
+    "column name"
+    id
+    "column name"
+    name
+    "column name"
+    owner_id
+}
+
+"unique or primary key constraints on table \"categories\""
+enum categories_constraint {
+    "unique or primary key constraint"
+    categories_pkey
+}
+
+"select columns of table \"categories\""
+enum categories_select_column {
+    "column name"
+    creator_id
+    "column name"
+    id
+    "column name"
+    name
+}
+
+"unique or primary key constraints on table \"categories_translations\""
+enum categories_translations_constraint {
+    "unique or primary key constraint"
+    categories_translations_pkey
+}
+
+"select columns of table \"categories_translations\""
+enum categories_translations_select_column {
+    "column name"
+    category_id
+    "column name"
+    creator_id
+    "column name"
+    description
+    "column name"
+    id
+    "column name"
+    language_id
+    "column name"
+    name
+}
+
+"update columns of table \"categories_translations\""
+enum categories_translations_update_column {
+    "column name"
+    category_id
+    "column name"
+    creator_id
+    "column name"
+    description
+    "column name"
+    id
+    "column name"
+    language_id
+    "column name"
+    name
+}
+
+"update columns of table \"categories\""
+enum categories_update_column {
+    "column name"
+    creator_id
+    "column name"
+    id
+    "column name"
+    name
+}
+
+"unique or primary key constraints on table \"countries\""
+enum countries_constraint {
+    "unique or primary key constraint"
+    countries_pkey
+}
+
+"select columns of table \"countries\""
+enum countries_select_column {
+    "column name"
+    id
+    "column name"
+    iso
+    "column name"
+    iso3
+    "column name"
+    name
+    "column name"
+    num_code
+    "column name"
+    phone_code
+}
+
+"update columns of table \"countries\""
+enum countries_update_column {
+    "column name"
+    id
+    "column name"
+    iso
+    "column name"
+    iso3
+    "column name"
+    name
+    "column name"
+    num_code
+    "column name"
+    phone_code
+}
+
+"unique or primary key constraints on table \"languages\""
+enum languages_constraint {
+    "unique or primary key constraint"
+    languages_pkey
+}
+
+"select columns of table \"languages\""
+enum languages_select_column {
+    "column name"
+    code
+    "column name"
+    id
+    "column name"
+    name
+}
+
+"update columns of table \"languages\""
+enum languages_update_column {
+    "column name"
+    code
+    "column name"
+    id
+    "column name"
+    name
+}
+
+"column ordering options"
+enum order_by {
+    "in the ascending order, nulls last"
+    asc
+    "in the ascending order, nulls first"
+    asc_nulls_first
+    "in the ascending order, nulls last"
+    asc_nulls_last
+    "in the descending order, nulls first"
+    desc
+    "in the descending order, nulls first"
+    desc_nulls_first
+    "in the descending order, nulls last"
+    desc_nulls_last
+}
+
+"unique or primary key constraints on table \"states\""
+enum states_constraint {
+    "unique or primary key constraint"
+    states_pkey
+}
+
+"select columns of table \"states\""
+enum states_select_column {
+    "column name"
+    abbreviation
+    "column name"
+    country_id
+    "column name"
+    id
+    "column name"
+    name
+}
+
+"update columns of table \"states\""
+enum states_update_column {
+    "column name"
+    abbreviation
+    "column name"
+    country_id
+    "column name"
+    id
+    "column name"
+    name
+}
+
+"unique or primary key constraints on table \"users\""
+enum users_constraint {
+    "unique or primary key constraint"
+    users_pkey
+}
+
+"select columns of table \"users\""
+enum users_select_column {
+    "column name"
+    avatar_url
+    "column name"
+    created_at
+    "column name"
+    display_name
+    "column name"
+    id
+    "column name"
+    updated_at
+}
+
+"update columns of table \"users\""
+enum users_update_column {
+    "column name"
+    avatar_url
+    "column name"
+    created_at
+    "column name"
+    display_name
+    "column name"
+    id
+    "column name"
+    updated_at
+}
+
+"expression to compare columns of type Boolean. All fields are combined with logical 'AND'."
+input Boolean_comparison_exp {
+    _eq: Boolean
+    _gt: Boolean
+    _gte: Boolean
+    _in: [Boolean!]
+    _is_null: Boolean
+    _lt: Boolean
+    _lte: Boolean
+    _neq: Boolean
+    _nin: [Boolean!]
+}
+
+"expression to compare columns of type Int. All fields are combined with logical 'AND'."
+input Int_comparison_exp {
+    _eq: Int
+    _gt: Int
+    _gte: Int
+    _in: [Int!]
+    _is_null: Boolean
+    _lt: Int
+    _lte: Int
+    _neq: Int
+    _nin: [Int!]
+}
+
+"expression to compare columns of type String. All fields are combined with logical 'AND'."
+input String_comparison_exp {
+    _eq: String
+    _gt: String
+    _gte: String
+    _ilike: String
+    _in: [String!]
+    _is_null: Boolean
+    _like: String
+    _lt: String
+    _lte: String
+    _neq: String
+    _nilike: String
+    _nin: [String!]
+    _nlike: String
+    _nsimilar: String
+    _similar: String
+}
+
+"order by aggregate values of table \"addresses\""
+input addresses_aggregate_order_by {
+    avg: addresses_avg_order_by
+    count: order_by
+    max: addresses_max_order_by
+    min: addresses_min_order_by
+    stddev: addresses_stddev_order_by
+    stddev_pop: addresses_stddev_pop_order_by
+    stddev_samp: addresses_stddev_samp_order_by
+    sum: addresses_sum_order_by
+    var_pop: addresses_var_pop_order_by
+    var_samp: addresses_var_samp_order_by
+    variance: addresses_variance_order_by
+}
+
+"input type for inserting array relation for remote table \"addresses\""
+input addresses_arr_rel_insert_input {
+    data: [addresses_insert_input!]!
+    on_conflict: addresses_on_conflict
+}
+
+"order by avg() on columns of table \"addresses\""
+input addresses_avg_order_by {
+    country_id: order_by
+    state_id: order_by
+}
+
+"Boolean expression to filter rows from the table \"addresses\". All fields are combined with a logical 'AND'."
+input addresses_bool_exp {
+    _and: [addresses_bool_exp]
+    _not: addresses_bool_exp
+    _or: [addresses_bool_exp]
+    businesses: businesses_bool_exp
+    country: countries_bool_exp
+    country_id: smallint_comparison_exp
+    id: uuid_comparison_exp
+    name: String_comparison_exp
+    owner_id: uuid_comparison_exp
+    state: states_bool_exp
+    state_id: smallint_comparison_exp
+    street: String_comparison_exp
+    user: users_bool_exp
+    zip_code: bpchar_comparison_exp
+}
+
+"input type for incrementing integer column in table \"addresses\""
+input addresses_inc_input {
+    country_id: smallint
+    state_id: smallint
+}
+
+"input type for inserting data into table \"addresses\""
+input addresses_insert_input {
+    businesses: businesses_arr_rel_insert_input
+    country: countries_obj_rel_insert_input
+    country_id: smallint
+    id: uuid
+    name: String
+    owner_id: uuid
+    state: states_obj_rel_insert_input
+    state_id: smallint
+    street: String
+    user: users_obj_rel_insert_input
+    zip_code: bpchar
+}
+
+"order by max() on columns of table \"addresses\""
+input addresses_max_order_by {
+    country_id: order_by
+    id: order_by
+    name: order_by
+    owner_id: order_by
+    state_id: order_by
+    street: order_by
+}
+
+"order by min() on columns of table \"addresses\""
+input addresses_min_order_by {
+    country_id: order_by
+    id: order_by
+    name: order_by
+    owner_id: order_by
+    state_id: order_by
+    street: order_by
+}
+
+"input type for inserting object relation for remote table \"addresses\""
+input addresses_obj_rel_insert_input {
+    data: addresses_insert_input!
+    on_conflict: addresses_on_conflict
+}
+
+"on conflict condition type for table \"addresses\""
+input addresses_on_conflict {
+    constraint: addresses_constraint!
+    update_columns: [addresses_update_column!]!
+    where: addresses_bool_exp
+}
+
+"ordering options when selecting data from \"addresses\""
+input addresses_order_by {
+    businesses_aggregate: businesses_aggregate_order_by
+    country: countries_order_by
+    country_id: order_by
+    id: order_by
+    name: order_by
+    owner_id: order_by
+    state: states_order_by
+    state_id: order_by
+    street: order_by
+    user: users_order_by
+    zip_code: order_by
+}
+
+"primary key columns input for table: \"addresses\""
+input addresses_pk_columns_input {
+    id: uuid!
+}
+
+"input type for updating data in table \"addresses\""
+input addresses_set_input {
+    country_id: smallint
+    id: uuid
+    name: String
+    owner_id: uuid
+    state_id: smallint
+    street: String
+    zip_code: bpchar
+}
+
+"order by stddev() on columns of table \"addresses\""
+input addresses_stddev_order_by {
+    country_id: order_by
+    state_id: order_by
+}
+
+"order by stddev_pop() on columns of table \"addresses\""
+input addresses_stddev_pop_order_by {
+    country_id: order_by
+    state_id: order_by
+}
+
+"order by stddev_samp() on columns of table \"addresses\""
+input addresses_stddev_samp_order_by {
+    country_id: order_by
+    state_id: order_by
+}
+
+"order by sum() on columns of table \"addresses\""
+input addresses_sum_order_by {
+    country_id: order_by
+    state_id: order_by
+}
+
+"order by var_pop() on columns of table \"addresses\""
+input addresses_var_pop_order_by {
+    country_id: order_by
+    state_id: order_by
+}
+
+"order by var_samp() on columns of table \"addresses\""
+input addresses_var_samp_order_by {
+    country_id: order_by
+    state_id: order_by
+}
+
+"order by variance() on columns of table \"addresses\""
+input addresses_variance_order_by {
+    country_id: order_by
+    state_id: order_by
+}
+
+"order by aggregate values of table \"auth.account_providers\""
+input auth_account_providers_aggregate_order_by {
+    count: order_by
+    max: auth_account_providers_max_order_by
+    min: auth_account_providers_min_order_by
+}
+
+"input type for inserting array relation for remote table \"auth.account_providers\""
+input auth_account_providers_arr_rel_insert_input {
+    data: [auth_account_providers_insert_input!]!
+    on_conflict: auth_account_providers_on_conflict
+}
+
+"Boolean expression to filter rows from the table \"auth.account_providers\". All fields are combined with a logical 'AND'."
+input auth_account_providers_bool_exp {
+    _and: [auth_account_providers_bool_exp]
+    _not: auth_account_providers_bool_exp
+    _or: [auth_account_providers_bool_exp]
+    account: auth_accounts_bool_exp
+    account_id: uuid_comparison_exp
+    auth_provider: String_comparison_exp
+    auth_provider_unique_id: String_comparison_exp
+    created_at: timestamptz_comparison_exp
+    id: uuid_comparison_exp
+    provider: auth_providers_bool_exp
+    updated_at: timestamptz_comparison_exp
+}
+
+"input type for inserting data into table \"auth.account_providers\""
+input auth_account_providers_insert_input {
+    account: auth_accounts_obj_rel_insert_input
+    account_id: uuid
+    auth_provider: String
+    auth_provider_unique_id: String
+    created_at: timestamptz
+    id: uuid
+    provider: auth_providers_obj_rel_insert_input
+    updated_at: timestamptz
+}
+
+"order by max() on columns of table \"auth.account_providers\""
+input auth_account_providers_max_order_by {
+    account_id: order_by
+    auth_provider: order_by
+    auth_provider_unique_id: order_by
+    created_at: order_by
+    id: order_by
+    updated_at: order_by
+}
+
+"order by min() on columns of table \"auth.account_providers\""
+input auth_account_providers_min_order_by {
+    account_id: order_by
+    auth_provider: order_by
+    auth_provider_unique_id: order_by
+    created_at: order_by
+    id: order_by
+    updated_at: order_by
+}
+
+"input type for inserting object relation for remote table \"auth.account_providers\""
+input auth_account_providers_obj_rel_insert_input {
+    data: auth_account_providers_insert_input!
+    on_conflict: auth_account_providers_on_conflict
+}
+
+"on conflict condition type for table \"auth.account_providers\""
+input auth_account_providers_on_conflict {
+    constraint: auth_account_providers_constraint!
+    update_columns: [auth_account_providers_update_column!]!
+    where: auth_account_providers_bool_exp
+}
+
+"ordering options when selecting data from \"auth.account_providers\""
+input auth_account_providers_order_by {
+    account: auth_accounts_order_by
+    account_id: order_by
+    auth_provider: order_by
+    auth_provider_unique_id: order_by
+    created_at: order_by
+    id: order_by
+    provider: auth_providers_order_by
+    updated_at: order_by
+}
+
+"primary key columns input for table: \"auth.account_providers\""
+input auth_account_providers_pk_columns_input {
+    id: uuid!
+}
+
+"input type for updating data in table \"auth.account_providers\""
+input auth_account_providers_set_input {
+    account_id: uuid
+    auth_provider: String
+    auth_provider_unique_id: String
+    created_at: timestamptz
+    id: uuid
+    updated_at: timestamptz
+}
+
+"order by aggregate values of table \"auth.account_roles\""
+input auth_account_roles_aggregate_order_by {
+    count: order_by
+    max: auth_account_roles_max_order_by
+    min: auth_account_roles_min_order_by
+}
+
+"input type for inserting array relation for remote table \"auth.account_roles\""
+input auth_account_roles_arr_rel_insert_input {
+    data: [auth_account_roles_insert_input!]!
+    on_conflict: auth_account_roles_on_conflict
+}
+
+"Boolean expression to filter rows from the table \"auth.account_roles\". All fields are combined with a logical 'AND'."
+input auth_account_roles_bool_exp {
+    _and: [auth_account_roles_bool_exp]
+    _not: auth_account_roles_bool_exp
+    _or: [auth_account_roles_bool_exp]
+    account: auth_accounts_bool_exp
+    account_id: uuid_comparison_exp
+    created_at: timestamptz_comparison_exp
+    id: uuid_comparison_exp
+    role: String_comparison_exp
+    roleByRole: auth_roles_bool_exp
+}
+
+"input type for inserting data into table \"auth.account_roles\""
+input auth_account_roles_insert_input {
+    account: auth_accounts_obj_rel_insert_input
+    account_id: uuid
+    created_at: timestamptz
+    id: uuid
+    role: String
+    roleByRole: auth_roles_obj_rel_insert_input
+}
+
+"order by max() on columns of table \"auth.account_roles\""
+input auth_account_roles_max_order_by {
+    account_id: order_by
+    created_at: order_by
+    id: order_by
+    role: order_by
+}
+
+"order by min() on columns of table \"auth.account_roles\""
+input auth_account_roles_min_order_by {
+    account_id: order_by
+    created_at: order_by
+    id: order_by
+    role: order_by
+}
+
+"input type for inserting object relation for remote table \"auth.account_roles\""
+input auth_account_roles_obj_rel_insert_input {
+    data: auth_account_roles_insert_input!
+    on_conflict: auth_account_roles_on_conflict
+}
+
+"on conflict condition type for table \"auth.account_roles\""
+input auth_account_roles_on_conflict {
+    constraint: auth_account_roles_constraint!
+    update_columns: [auth_account_roles_update_column!]!
+    where: auth_account_roles_bool_exp
+}
+
+"ordering options when selecting data from \"auth.account_roles\""
+input auth_account_roles_order_by {
+    account: auth_accounts_order_by
+    account_id: order_by
+    created_at: order_by
+    id: order_by
+    role: order_by
+    roleByRole: auth_roles_order_by
+}
+
+"primary key columns input for table: \"auth.account_roles\""
+input auth_account_roles_pk_columns_input {
+    id: uuid!
+}
+
+"input type for updating data in table \"auth.account_roles\""
+input auth_account_roles_set_input {
+    account_id: uuid
+    created_at: timestamptz
+    id: uuid
+    role: String
+}
+
+"order by aggregate values of table \"auth.accounts\""
+input auth_accounts_aggregate_order_by {
+    count: order_by
+    max: auth_accounts_max_order_by
+    min: auth_accounts_min_order_by
+}
+
+"append existing jsonb value of filtered columns with new jsonb value"
+input auth_accounts_append_input {
+    custom_register_data: jsonb
+}
+
+"input type for inserting array relation for remote table \"auth.accounts\""
+input auth_accounts_arr_rel_insert_input {
+    data: [auth_accounts_insert_input!]!
+    on_conflict: auth_accounts_on_conflict
+}
+
+"Boolean expression to filter rows from the table \"auth.accounts\". All fields are combined with a logical 'AND'."
+input auth_accounts_bool_exp {
+    _and: [auth_accounts_bool_exp]
+    _not: auth_accounts_bool_exp
+    _or: [auth_accounts_bool_exp]
+    account_providers: auth_account_providers_bool_exp
+    account_roles: auth_account_roles_bool_exp
+    active: Boolean_comparison_exp
+    created_at: timestamptz_comparison_exp
+    custom_register_data: jsonb_comparison_exp
+    default_role: String_comparison_exp
+    email: citext_comparison_exp
+    id: uuid_comparison_exp
+    is_anonymous: Boolean_comparison_exp
+    mfa_enabled: Boolean_comparison_exp
+    new_email: citext_comparison_exp
+    otp_secret: String_comparison_exp
+    password_hash: String_comparison_exp
+    refresh_tokens: auth_refresh_tokens_bool_exp
+    role: auth_roles_bool_exp
+    ticket: uuid_comparison_exp
+    ticket_expires_at: timestamptz_comparison_exp
+    updated_at: timestamptz_comparison_exp
+    user: users_bool_exp
+    user_id: uuid_comparison_exp
+}
+
+"delete the field or element with specified path (for JSON arrays, negative integers count from the end)"
+input auth_accounts_delete_at_path_input {
+    custom_register_data: [String]
+}
+
+"delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array"
+input auth_accounts_delete_elem_input {
+    custom_register_data: Int
+}
+
+"delete key/value pair or string element. key/value pairs are matched based on their key value"
+input auth_accounts_delete_key_input {
+    custom_register_data: String
+}
+
+"input type for inserting data into table \"auth.accounts\""
+input auth_accounts_insert_input {
+    account_providers: auth_account_providers_arr_rel_insert_input
+    account_roles: auth_account_roles_arr_rel_insert_input
+    active: Boolean
+    created_at: timestamptz
+    custom_register_data: jsonb
+    default_role: String
+    email: citext
+    id: uuid
+    is_anonymous: Boolean
+    mfa_enabled: Boolean
+    new_email: citext
+    otp_secret: String
+    password_hash: String
+    refresh_tokens: auth_refresh_tokens_arr_rel_insert_input
+    role: auth_roles_obj_rel_insert_input
+    ticket: uuid
+    ticket_expires_at: timestamptz
+    updated_at: timestamptz
+    user: users_obj_rel_insert_input
+    user_id: uuid
+}
+
+"order by max() on columns of table \"auth.accounts\""
+input auth_accounts_max_order_by {
+    created_at: order_by
+    default_role: order_by
+    email: order_by
+    id: order_by
+    new_email: order_by
+    otp_secret: order_by
+    password_hash: order_by
+    ticket: order_by
+    ticket_expires_at: order_by
+    updated_at: order_by
+    user_id: order_by
+}
+
+"order by min() on columns of table \"auth.accounts\""
+input auth_accounts_min_order_by {
+    created_at: order_by
+    default_role: order_by
+    email: order_by
+    id: order_by
+    new_email: order_by
+    otp_secret: order_by
+    password_hash: order_by
+    ticket: order_by
+    ticket_expires_at: order_by
+    updated_at: order_by
+    user_id: order_by
+}
+
+"input type for inserting object relation for remote table \"auth.accounts\""
+input auth_accounts_obj_rel_insert_input {
+    data: auth_accounts_insert_input!
+    on_conflict: auth_accounts_on_conflict
+}
+
+"on conflict condition type for table \"auth.accounts\""
+input auth_accounts_on_conflict {
+    constraint: auth_accounts_constraint!
+    update_columns: [auth_accounts_update_column!]!
+    where: auth_accounts_bool_exp
+}
+
+"ordering options when selecting data from \"auth.accounts\""
+input auth_accounts_order_by {
+    account_providers_aggregate: auth_account_providers_aggregate_order_by
+    account_roles_aggregate: auth_account_roles_aggregate_order_by
+    active: order_by
+    created_at: order_by
+    custom_register_data: order_by
+    default_role: order_by
+    email: order_by
+    id: order_by
+    is_anonymous: order_by
+    mfa_enabled: order_by
+    new_email: order_by
+    otp_secret: order_by
+    password_hash: order_by
+    refresh_tokens_aggregate: auth_refresh_tokens_aggregate_order_by
+    role: auth_roles_order_by
+    ticket: order_by
+    ticket_expires_at: order_by
+    updated_at: order_by
+    user: users_order_by
+    user_id: order_by
+}
+
+"primary key columns input for table: \"auth.accounts\""
+input auth_accounts_pk_columns_input {
+    id: uuid!
+}
+
+"prepend existing jsonb value of filtered columns with new jsonb value"
+input auth_accounts_prepend_input {
+    custom_register_data: jsonb
+}
+
+"input type for updating data in table \"auth.accounts\""
+input auth_accounts_set_input {
+    active: Boolean
+    created_at: timestamptz
+    custom_register_data: jsonb
+    default_role: String
+    email: citext
+    id: uuid
+    is_anonymous: Boolean
+    mfa_enabled: Boolean
+    new_email: citext
+    otp_secret: String
+    password_hash: String
+    ticket: uuid
+    ticket_expires_at: timestamptz
+    updated_at: timestamptz
+    user_id: uuid
+}
+
+"order by aggregate values of table \"auth.providers\""
+input auth_providers_aggregate_order_by {
+    count: order_by
+    max: auth_providers_max_order_by
+    min: auth_providers_min_order_by
+}
+
+"input type for inserting array relation for remote table \"auth.providers\""
+input auth_providers_arr_rel_insert_input {
+    data: [auth_providers_insert_input!]!
+    on_conflict: auth_providers_on_conflict
+}
+
+"Boolean expression to filter rows from the table \"auth.providers\". All fields are combined with a logical 'AND'."
+input auth_providers_bool_exp {
+    _and: [auth_providers_bool_exp]
+    _not: auth_providers_bool_exp
+    _or: [auth_providers_bool_exp]
+    account_providers: auth_account_providers_bool_exp
+    provider: String_comparison_exp
+}
+
+"input type for inserting data into table \"auth.providers\""
+input auth_providers_insert_input {
+    account_providers: auth_account_providers_arr_rel_insert_input
+    provider: String
+}
+
+"order by max() on columns of table \"auth.providers\""
+input auth_providers_max_order_by {
+    provider: order_by
+}
+
+"order by min() on columns of table \"auth.providers\""
+input auth_providers_min_order_by {
+    provider: order_by
+}
+
+"input type for inserting object relation for remote table \"auth.providers\""
+input auth_providers_obj_rel_insert_input {
+    data: auth_providers_insert_input!
+    on_conflict: auth_providers_on_conflict
+}
+
+"on conflict condition type for table \"auth.providers\""
+input auth_providers_on_conflict {
+    constraint: auth_providers_constraint!
+    update_columns: [auth_providers_update_column!]!
+    where: auth_providers_bool_exp
+}
+
+"ordering options when selecting data from \"auth.providers\""
+input auth_providers_order_by {
+    account_providers_aggregate: auth_account_providers_aggregate_order_by
+    provider: order_by
+}
+
+"primary key columns input for table: \"auth.providers\""
+input auth_providers_pk_columns_input {
+    provider: String!
+}
+
+"input type for updating data in table \"auth.providers\""
+input auth_providers_set_input {
+    provider: String
+}
+
+"order by aggregate values of table \"auth.refresh_tokens\""
+input auth_refresh_tokens_aggregate_order_by {
+    count: order_by
+    max: auth_refresh_tokens_max_order_by
+    min: auth_refresh_tokens_min_order_by
+}
+
+"input type for inserting array relation for remote table \"auth.refresh_tokens\""
+input auth_refresh_tokens_arr_rel_insert_input {
+    data: [auth_refresh_tokens_insert_input!]!
+    on_conflict: auth_refresh_tokens_on_conflict
+}
+
+"Boolean expression to filter rows from the table \"auth.refresh_tokens\". All fields are combined with a logical 'AND'."
+input auth_refresh_tokens_bool_exp {
+    _and: [auth_refresh_tokens_bool_exp]
+    _not: auth_refresh_tokens_bool_exp
+    _or: [auth_refresh_tokens_bool_exp]
+    account: auth_accounts_bool_exp
+    account_id: uuid_comparison_exp
+    created_at: timestamptz_comparison_exp
+    expires_at: timestamptz_comparison_exp
+    refresh_token: uuid_comparison_exp
+}
+
+"input type for inserting data into table \"auth.refresh_tokens\""
+input auth_refresh_tokens_insert_input {
+    account: auth_accounts_obj_rel_insert_input
+    account_id: uuid
+    created_at: timestamptz
+    expires_at: timestamptz
+    refresh_token: uuid
+}
+
+"order by max() on columns of table \"auth.refresh_tokens\""
+input auth_refresh_tokens_max_order_by {
+    account_id: order_by
+    created_at: order_by
+    expires_at: order_by
+    refresh_token: order_by
+}
+
+"order by min() on columns of table \"auth.refresh_tokens\""
+input auth_refresh_tokens_min_order_by {
+    account_id: order_by
+    created_at: order_by
+    expires_at: order_by
+    refresh_token: order_by
+}
+
+"input type for inserting object relation for remote table \"auth.refresh_tokens\""
+input auth_refresh_tokens_obj_rel_insert_input {
+    data: auth_refresh_tokens_insert_input!
+    on_conflict: auth_refresh_tokens_on_conflict
+}
+
+"on conflict condition type for table \"auth.refresh_tokens\""
+input auth_refresh_tokens_on_conflict {
+    constraint: auth_refresh_tokens_constraint!
+    update_columns: [auth_refresh_tokens_update_column!]!
+    where: auth_refresh_tokens_bool_exp
+}
+
+"ordering options when selecting data from \"auth.refresh_tokens\""
+input auth_refresh_tokens_order_by {
+    account: auth_accounts_order_by
+    account_id: order_by
+    created_at: order_by
+    expires_at: order_by
+    refresh_token: order_by
+}
+
+"primary key columns input for table: \"auth.refresh_tokens\""
+input auth_refresh_tokens_pk_columns_input {
+    refresh_token: uuid!
+}
+
+"input type for updating data in table \"auth.refresh_tokens\""
+input auth_refresh_tokens_set_input {
+    account_id: uuid
+    created_at: timestamptz
+    expires_at: timestamptz
+    refresh_token: uuid
+}
+
+"order by aggregate values of table \"auth.roles\""
+input auth_roles_aggregate_order_by {
+    count: order_by
+    max: auth_roles_max_order_by
+    min: auth_roles_min_order_by
+}
+
+"input type for inserting array relation for remote table \"auth.roles\""
+input auth_roles_arr_rel_insert_input {
+    data: [auth_roles_insert_input!]!
+    on_conflict: auth_roles_on_conflict
+}
+
+"Boolean expression to filter rows from the table \"auth.roles\". All fields are combined with a logical 'AND'."
+input auth_roles_bool_exp {
+    _and: [auth_roles_bool_exp]
+    _not: auth_roles_bool_exp
+    _or: [auth_roles_bool_exp]
+    account_roles: auth_account_roles_bool_exp
+    accounts: auth_accounts_bool_exp
+    role: String_comparison_exp
+}
+
+"input type for inserting data into table \"auth.roles\""
+input auth_roles_insert_input {
+    account_roles: auth_account_roles_arr_rel_insert_input
+    accounts: auth_accounts_arr_rel_insert_input
+    role: String
+}
+
+"order by max() on columns of table \"auth.roles\""
+input auth_roles_max_order_by {
+    role: order_by
+}
+
+"order by min() on columns of table \"auth.roles\""
+input auth_roles_min_order_by {
+    role: order_by
+}
+
+"input type for inserting object relation for remote table \"auth.roles\""
+input auth_roles_obj_rel_insert_input {
+    data: auth_roles_insert_input!
+    on_conflict: auth_roles_on_conflict
+}
+
+"on conflict condition type for table \"auth.roles\""
+input auth_roles_on_conflict {
+    constraint: auth_roles_constraint!
+    update_columns: [auth_roles_update_column!]!
+    where: auth_roles_bool_exp
+}
+
+"ordering options when selecting data from \"auth.roles\""
+input auth_roles_order_by {
+    account_roles_aggregate: auth_account_roles_aggregate_order_by
+    accounts_aggregate: auth_accounts_aggregate_order_by
+    role: order_by
+}
+
+"primary key columns input for table: \"auth.roles\""
+input auth_roles_pk_columns_input {
+    role: String!
+}
+
+"input type for updating data in table \"auth.roles\""
+input auth_roles_set_input {
+    role: String
+}
+
+"expression to compare columns of type bpchar. All fields are combined with logical 'AND'."
+input bpchar_comparison_exp {
+    _eq: bpchar
+    _gt: bpchar
+    _gte: bpchar
+    _in: [bpchar!]
+    _is_null: Boolean
+    _lt: bpchar
+    _lte: bpchar
+    _neq: bpchar
+    _nin: [bpchar!]
+}
+
+"order by aggregate values of table \"businesses\""
+input businesses_aggregate_order_by {
+    count: order_by
+    max: businesses_max_order_by
+    min: businesses_min_order_by
+}
+
+"input type for inserting array relation for remote table \"businesses\""
+input businesses_arr_rel_insert_input {
+    data: [businesses_insert_input!]!
+    on_conflict: businesses_on_conflict
+}
+
+"Boolean expression to filter rows from the table \"businesses\". All fields are combined with a logical 'AND'."
+input businesses_bool_exp {
+    _and: [businesses_bool_exp]
+    _not: businesses_bool_exp
+    _or: [businesses_bool_exp]
+    address: addresses_bool_exp
+    address_id: uuid_comparison_exp
+    category_id: uuid_comparison_exp
+    description: String_comparison_exp
+    email_address: String_comparison_exp
+    id: uuid_comparison_exp
+    name: String_comparison_exp
+    owner_id: uuid_comparison_exp
+}
+
+"input type for inserting data into table \"businesses\""
+input businesses_insert_input {
+    address: addresses_obj_rel_insert_input
+    address_id: uuid
+    category_id: uuid
+    description: String
+    email_address: String
+    id: uuid
+    name: String
+    owner_id: uuid
+}
+
+"order by max() on columns of table \"businesses\""
+input businesses_max_order_by {
+    address_id: order_by
+    category_id: order_by
+    description: order_by
+    email_address: order_by
+    id: order_by
+    name: order_by
+    owner_id: order_by
+}
+
+"order by min() on columns of table \"businesses\""
+input businesses_min_order_by {
+    address_id: order_by
+    category_id: order_by
+    description: order_by
+    email_address: order_by
+    id: order_by
+    name: order_by
+    owner_id: order_by
+}
+
+"input type for inserting object relation for remote table \"businesses\""
+input businesses_obj_rel_insert_input {
+    data: businesses_insert_input!
+    on_conflict: businesses_on_conflict
+}
+
+"on conflict condition type for table \"businesses\""
+input businesses_on_conflict {
+    constraint: businesses_constraint!
+    update_columns: [businesses_update_column!]!
+    where: businesses_bool_exp
+}
+
+"ordering options when selecting data from \"businesses\""
+input businesses_order_by {
+    address: addresses_order_by
+    address_id: order_by
+    category_id: order_by
+    description: order_by
+    email_address: order_by
+    id: order_by
+    name: order_by
+    owner_id: order_by
+}
+
+"primary key columns input for table: \"businesses\""
+input businesses_pk_columns_input {
+    id: uuid!
+}
+
+"input type for updating data in table \"businesses\""
+input businesses_set_input {
+    address_id: uuid
+    category_id: uuid
+    description: String
+    email_address: String
+    id: uuid
+    name: String
+    owner_id: uuid
+}
+
+"order by aggregate values of table \"categories\""
+input categories_aggregate_order_by {
+    count: order_by
+    max: categories_max_order_by
+    min: categories_min_order_by
+}
+
+"input type for inserting array relation for remote table \"categories\""
+input categories_arr_rel_insert_input {
+    data: [categories_insert_input!]!
+    on_conflict: categories_on_conflict
+}
+
+"Boolean expression to filter rows from the table \"categories\". All fields are combined with a logical 'AND'."
+input categories_bool_exp {
+    _and: [categories_bool_exp]
+    _not: categories_bool_exp
+    _or: [categories_bool_exp]
+    categories_translations: categories_translations_bool_exp
+    creator_id: uuid_comparison_exp
+    id: uuid_comparison_exp
+    name: String_comparison_exp
+    user: users_bool_exp
+}
+
+"input type for inserting data into table \"categories\""
+input categories_insert_input {
+    categories_translations: categories_translations_arr_rel_insert_input
+    creator_id: uuid
+    id: uuid
+    name: String
+    user: users_obj_rel_insert_input
+}
+
+"order by max() on columns of table \"categories\""
+input categories_max_order_by {
+    creator_id: order_by
+    id: order_by
+    name: order_by
+}
+
+"order by min() on columns of table \"categories\""
+input categories_min_order_by {
+    creator_id: order_by
+    id: order_by
+    name: order_by
+}
+
+"input type for inserting object relation for remote table \"categories\""
+input categories_obj_rel_insert_input {
+    data: categories_insert_input!
+    on_conflict: categories_on_conflict
+}
+
+"on conflict condition type for table \"categories\""
+input categories_on_conflict {
+    constraint: categories_constraint!
+    update_columns: [categories_update_column!]!
+    where: categories_bool_exp
+}
+
+"ordering options when selecting data from \"categories\""
+input categories_order_by {
+    categories_translations_aggregate: categories_translations_aggregate_order_by
+    creator_id: order_by
+    id: order_by
+    name: order_by
+    user: users_order_by
+}
+
+"primary key columns input for table: \"categories\""
+input categories_pk_columns_input {
+    id: uuid!
+}
+
+"input type for updating data in table \"categories\""
+input categories_set_input {
+    creator_id: uuid
+    id: uuid
+    name: String
+}
+
+"order by aggregate values of table \"categories_translations\""
+input categories_translations_aggregate_order_by {
+    count: order_by
+    max: categories_translations_max_order_by
+    min: categories_translations_min_order_by
+}
+
+"input type for inserting array relation for remote table \"categories_translations\""
+input categories_translations_arr_rel_insert_input {
+    data: [categories_translations_insert_input!]!
+    on_conflict: categories_translations_on_conflict
+}
+
+"Boolean expression to filter rows from the table \"categories_translations\". All fields are combined with a logical 'AND'."
+input categories_translations_bool_exp {
+    _and: [categories_translations_bool_exp]
+    _not: categories_translations_bool_exp
+    _or: [categories_translations_bool_exp]
+    category: categories_bool_exp
+    category_id: uuid_comparison_exp
+    creator_id: uuid_comparison_exp
+    description: String_comparison_exp
+    id: uuid_comparison_exp
+    language: languages_bool_exp
+    language_id: uuid_comparison_exp
+    name: String_comparison_exp
+    user: users_bool_exp
+}
+
+"input type for inserting data into table \"categories_translations\""
+input categories_translations_insert_input {
+    category: categories_obj_rel_insert_input
+    category_id: uuid
+    creator_id: uuid
+    description: String
+    id: uuid
+    language: languages_obj_rel_insert_input
+    language_id: uuid
+    name: String
+    user: users_obj_rel_insert_input
+}
+
+"order by max() on columns of table \"categories_translations\""
+input categories_translations_max_order_by {
+    category_id: order_by
+    creator_id: order_by
+    description: order_by
+    id: order_by
+    language_id: order_by
+    name: order_by
+}
+
+"order by min() on columns of table \"categories_translations\""
+input categories_translations_min_order_by {
+    category_id: order_by
+    creator_id: order_by
+    description: order_by
+    id: order_by
+    language_id: order_by
+    name: order_by
+}
+
+"input type for inserting object relation for remote table \"categories_translations\""
+input categories_translations_obj_rel_insert_input {
+    data: categories_translations_insert_input!
+    on_conflict: categories_translations_on_conflict
+}
+
+"on conflict condition type for table \"categories_translations\""
+input categories_translations_on_conflict {
+    constraint: categories_translations_constraint!
+    update_columns: [categories_translations_update_column!]!
+    where: categories_translations_bool_exp
+}
+
+"ordering options when selecting data from \"categories_translations\""
+input categories_translations_order_by {
+    category: categories_order_by
+    category_id: order_by
+    creator_id: order_by
+    description: order_by
+    id: order_by
+    language: languages_order_by
+    language_id: order_by
+    name: order_by
+    user: users_order_by
+}
+
+"primary key columns input for table: \"categories_translations\""
+input categories_translations_pk_columns_input {
+    id: uuid!
+}
+
+"input type for updating data in table \"categories_translations\""
+input categories_translations_set_input {
+    category_id: uuid
+    creator_id: uuid
+    description: String
+    id: uuid
+    language_id: uuid
+    name: String
+}
+
+"expression to compare columns of type citext. All fields are combined with logical 'AND'."
+input citext_comparison_exp {
+    _eq: citext
+    _gt: citext
+    _gte: citext
+    _ilike: String
+    _in: [citext!]
+    _is_null: Boolean
+    _like: String
+    _lt: citext
+    _lte: citext
+    _neq: citext
+    _nilike: String
+    _nin: [citext!]
+    _nlike: String
+    _nsimilar: String
+    _similar: String
+}
+
+"order by aggregate values of table \"countries\""
+input countries_aggregate_order_by {
+    avg: countries_avg_order_by
+    count: order_by
+    max: countries_max_order_by
+    min: countries_min_order_by
+    stddev: countries_stddev_order_by
+    stddev_pop: countries_stddev_pop_order_by
+    stddev_samp: countries_stddev_samp_order_by
+    sum: countries_sum_order_by
+    var_pop: countries_var_pop_order_by
+    var_samp: countries_var_samp_order_by
+    variance: countries_variance_order_by
+}
+
+"input type for inserting array relation for remote table \"countries\""
+input countries_arr_rel_insert_input {
+    data: [countries_insert_input!]!
+    on_conflict: countries_on_conflict
+}
+
+"order by avg() on columns of table \"countries\""
+input countries_avg_order_by {
+    id: order_by
+    num_code: order_by
+    phone_code: order_by
+}
+
+"Boolean expression to filter rows from the table \"countries\". All fields are combined with a logical 'AND'."
+input countries_bool_exp {
+    _and: [countries_bool_exp]
+    _not: countries_bool_exp
+    _or: [countries_bool_exp]
+    addresses: addresses_bool_exp
+    id: smallint_comparison_exp
+    iso: String_comparison_exp
+    iso3: String_comparison_exp
+    name: String_comparison_exp
+    num_code: Int_comparison_exp
+    phone_code: Int_comparison_exp
+    states: states_bool_exp
+}
+
+"input type for incrementing integer column in table \"countries\""
+input countries_inc_input {
+    id: smallint
+    num_code: Int
+    phone_code: Int
+}
+
+"input type for inserting data into table \"countries\""
+input countries_insert_input {
+    addresses: addresses_arr_rel_insert_input
+    id: smallint
+    iso: String
+    iso3: String
+    name: String
+    num_code: Int
+    phone_code: Int
+    states: states_arr_rel_insert_input
+}
+
+"order by max() on columns of table \"countries\""
+input countries_max_order_by {
+    id: order_by
+    iso: order_by
+    iso3: order_by
+    name: order_by
+    num_code: order_by
+    phone_code: order_by
+}
+
+"order by min() on columns of table \"countries\""
+input countries_min_order_by {
+    id: order_by
+    iso: order_by
+    iso3: order_by
+    name: order_by
+    num_code: order_by
+    phone_code: order_by
+}
+
+"input type for inserting object relation for remote table \"countries\""
+input countries_obj_rel_insert_input {
+    data: countries_insert_input!
+    on_conflict: countries_on_conflict
+}
+
+"on conflict condition type for table \"countries\""
+input countries_on_conflict {
+    constraint: countries_constraint!
+    update_columns: [countries_update_column!]!
+    where: countries_bool_exp
+}
+
+"ordering options when selecting data from \"countries\""
+input countries_order_by {
+    addresses_aggregate: addresses_aggregate_order_by
+    id: order_by
+    iso: order_by
+    iso3: order_by
+    name: order_by
+    num_code: order_by
+    phone_code: order_by
+    states_aggregate: states_aggregate_order_by
+}
+
+"primary key columns input for table: \"countries\""
+input countries_pk_columns_input {
+    id: smallint!
+}
+
+"input type for updating data in table \"countries\""
+input countries_set_input {
+    id: smallint
+    iso: String
+    iso3: String
+    name: String
+    num_code: Int
+    phone_code: Int
+}
+
+"order by stddev() on columns of table \"countries\""
+input countries_stddev_order_by {
+    id: order_by
+    num_code: order_by
+    phone_code: order_by
+}
+
+"order by stddev_pop() on columns of table \"countries\""
+input countries_stddev_pop_order_by {
+    id: order_by
+    num_code: order_by
+    phone_code: order_by
+}
+
+"order by stddev_samp() on columns of table \"countries\""
+input countries_stddev_samp_order_by {
+    id: order_by
+    num_code: order_by
+    phone_code: order_by
+}
+
+"order by sum() on columns of table \"countries\""
+input countries_sum_order_by {
+    id: order_by
+    num_code: order_by
+    phone_code: order_by
+}
+
+"order by var_pop() on columns of table \"countries\""
+input countries_var_pop_order_by {
+    id: order_by
+    num_code: order_by
+    phone_code: order_by
+}
+
+"order by var_samp() on columns of table \"countries\""
+input countries_var_samp_order_by {
+    id: order_by
+    num_code: order_by
+    phone_code: order_by
+}
+
+"order by variance() on columns of table \"countries\""
+input countries_variance_order_by {
+    id: order_by
+    num_code: order_by
+    phone_code: order_by
+}
+
+"expression to compare columns of type jsonb. All fields are combined with logical 'AND'."
+input jsonb_comparison_exp {
+    "is the column contained in the given json value"
+    _contained_in: jsonb
+    "does the column contain the given json value at the top level"
+    _contains: jsonb
+    _eq: jsonb
+    _gt: jsonb
+    _gte: jsonb
+    "does the string exist as a top-level key in the column"
+    _has_key: String
+    "do all of these strings exist as top-level keys in the column"
+    _has_keys_all: [String!]
+    "do any of these strings exist as top-level keys in the column"
+    _has_keys_any: [String!]
+    _in: [jsonb!]
+    _is_null: Boolean
+    _lt: jsonb
+    _lte: jsonb
+    _neq: jsonb
+    _nin: [jsonb!]
+}
+
+"order by aggregate values of table \"languages\""
+input languages_aggregate_order_by {
+    count: order_by
+    max: languages_max_order_by
+    min: languages_min_order_by
+}
+
+"input type for inserting array relation for remote table \"languages\""
+input languages_arr_rel_insert_input {
+    data: [languages_insert_input!]!
+    on_conflict: languages_on_conflict
+}
+
+"Boolean expression to filter rows from the table \"languages\". All fields are combined with a logical 'AND'."
+input languages_bool_exp {
+    _and: [languages_bool_exp]
+    _not: languages_bool_exp
+    _or: [languages_bool_exp]
+    categories_translations: categories_translations_bool_exp
+    code: bpchar_comparison_exp
+    id: uuid_comparison_exp
+    name: String_comparison_exp
+}
+
+"input type for inserting data into table \"languages\""
+input languages_insert_input {
+    categories_translations: categories_translations_arr_rel_insert_input
+    code: bpchar
+    id: uuid
+    name: String
+}
+
+"order by max() on columns of table \"languages\""
+input languages_max_order_by {
+    id: order_by
+    name: order_by
+}
+
+"order by min() on columns of table \"languages\""
+input languages_min_order_by {
+    id: order_by
+    name: order_by
+}
+
+"input type for inserting object relation for remote table \"languages\""
+input languages_obj_rel_insert_input {
+    data: languages_insert_input!
+    on_conflict: languages_on_conflict
+}
+
+"on conflict condition type for table \"languages\""
+input languages_on_conflict {
+    constraint: languages_constraint!
+    update_columns: [languages_update_column!]!
+    where: languages_bool_exp
+}
+
+"ordering options when selecting data from \"languages\""
+input languages_order_by {
+    categories_translations_aggregate: categories_translations_aggregate_order_by
+    code: order_by
+    id: order_by
+    name: order_by
+}
+
+"primary key columns input for table: \"languages\""
+input languages_pk_columns_input {
+    id: uuid!
+}
+
+"input type for updating data in table \"languages\""
+input languages_set_input {
+    code: bpchar
+    id: uuid
+    name: String
+}
+
+"expression to compare columns of type smallint. All fields are combined with logical 'AND'."
+input smallint_comparison_exp {
+    _eq: smallint
+    _gt: smallint
+    _gte: smallint
+    _in: [smallint!]
+    _is_null: Boolean
+    _lt: smallint
+    _lte: smallint
+    _neq: smallint
+    _nin: [smallint!]
+}
+
+"order by aggregate values of table \"states\""
+input states_aggregate_order_by {
+    avg: states_avg_order_by
+    count: order_by
+    max: states_max_order_by
+    min: states_min_order_by
+    stddev: states_stddev_order_by
+    stddev_pop: states_stddev_pop_order_by
+    stddev_samp: states_stddev_samp_order_by
+    sum: states_sum_order_by
+    var_pop: states_var_pop_order_by
+    var_samp: states_var_samp_order_by
+    variance: states_variance_order_by
+}
+
+"input type for inserting array relation for remote table \"states\""
+input states_arr_rel_insert_input {
+    data: [states_insert_input!]!
+    on_conflict: states_on_conflict
+}
+
+"order by avg() on columns of table \"states\""
+input states_avg_order_by {
+    country_id: order_by
+    id: order_by
+}
+
+"Boolean expression to filter rows from the table \"states\". All fields are combined with a logical 'AND'."
+input states_bool_exp {
+    _and: [states_bool_exp]
+    _not: states_bool_exp
+    _or: [states_bool_exp]
+    abbreviation: String_comparison_exp
+    addresses: addresses_bool_exp
+    country: countries_bool_exp
+    country_id: smallint_comparison_exp
+    id: smallint_comparison_exp
+    name: String_comparison_exp
+}
+
+"input type for incrementing integer column in table \"states\""
+input states_inc_input {
+    country_id: smallint
+    id: smallint
+}
+
+"input type for inserting data into table \"states\""
+input states_insert_input {
+    abbreviation: String
+    addresses: addresses_arr_rel_insert_input
+    country: countries_obj_rel_insert_input
+    country_id: smallint
+    id: smallint
+    name: String
+}
+
+"order by max() on columns of table \"states\""
+input states_max_order_by {
+    abbreviation: order_by
+    country_id: order_by
+    id: order_by
+    name: order_by
+}
+
+"order by min() on columns of table \"states\""
+input states_min_order_by {
+    abbreviation: order_by
+    country_id: order_by
+    id: order_by
+    name: order_by
+}
+
+"input type for inserting object relation for remote table \"states\""
+input states_obj_rel_insert_input {
+    data: states_insert_input!
+    on_conflict: states_on_conflict
+}
+
+"on conflict condition type for table \"states\""
+input states_on_conflict {
+    constraint: states_constraint!
+    update_columns: [states_update_column!]!
+    where: states_bool_exp
+}
+
+"ordering options when selecting data from \"states\""
+input states_order_by {
+    abbreviation: order_by
+    addresses_aggregate: addresses_aggregate_order_by
+    country: countries_order_by
+    country_id: order_by
+    id: order_by
+    name: order_by
+}
+
+"primary key columns input for table: \"states\""
+input states_pk_columns_input {
+    id: smallint!
+}
+
+"input type for updating data in table \"states\""
+input states_set_input {
+    abbreviation: String
+    country_id: smallint
+    id: smallint
+    name: String
+}
+
+"order by stddev() on columns of table \"states\""
+input states_stddev_order_by {
+    country_id: order_by
+    id: order_by
+}
+
+"order by stddev_pop() on columns of table \"states\""
+input states_stddev_pop_order_by {
+    country_id: order_by
+    id: order_by
+}
+
+"order by stddev_samp() on columns of table \"states\""
+input states_stddev_samp_order_by {
+    country_id: order_by
+    id: order_by
+}
+
+"order by sum() on columns of table \"states\""
+input states_sum_order_by {
+    country_id: order_by
+    id: order_by
+}
+
+"order by var_pop() on columns of table \"states\""
+input states_var_pop_order_by {
+    country_id: order_by
+    id: order_by
+}
+
+"order by var_samp() on columns of table \"states\""
+input states_var_samp_order_by {
+    country_id: order_by
+    id: order_by
+}
+
+"order by variance() on columns of table \"states\""
+input states_variance_order_by {
+    country_id: order_by
+    id: order_by
+}
+
+"expression to compare columns of type timestamptz. All fields are combined with logical 'AND'."
+input timestamptz_comparison_exp {
+    _eq: timestamptz
+    _gt: timestamptz
+    _gte: timestamptz
+    _in: [timestamptz!]
+    _is_null: Boolean
+    _lt: timestamptz
+    _lte: timestamptz
+    _neq: timestamptz
+    _nin: [timestamptz!]
+}
+
+"order by aggregate values of table \"users\""
+input users_aggregate_order_by {
+    count: order_by
+    max: users_max_order_by
+    min: users_min_order_by
+}
+
+"input type for inserting array relation for remote table \"users\""
+input users_arr_rel_insert_input {
+    data: [users_insert_input!]!
+    on_conflict: users_on_conflict
+}
+
+"Boolean expression to filter rows from the table \"users\". All fields are combined with a logical 'AND'."
+input users_bool_exp {
+    _and: [users_bool_exp]
+    _not: users_bool_exp
+    _or: [users_bool_exp]
+    account: auth_accounts_bool_exp
+    addresses: addresses_bool_exp
+    avatar_url: String_comparison_exp
+    categories: categories_bool_exp
+    categories_translations: categories_translations_bool_exp
+    created_at: timestamptz_comparison_exp
+    display_name: String_comparison_exp
+    id: uuid_comparison_exp
+    updated_at: timestamptz_comparison_exp
+}
+
+"input type for inserting data into table \"users\""
+input users_insert_input {
+    account: auth_accounts_obj_rel_insert_input
+    addresses: addresses_arr_rel_insert_input
+    avatar_url: String
+    categories: categories_arr_rel_insert_input
+    categories_translations: categories_translations_arr_rel_insert_input
+    created_at: timestamptz
+    display_name: String
+    id: uuid
+    updated_at: timestamptz
+}
+
+"order by max() on columns of table \"users\""
+input users_max_order_by {
+    avatar_url: order_by
+    created_at: order_by
+    display_name: order_by
+    id: order_by
+    updated_at: order_by
+}
+
+"order by min() on columns of table \"users\""
+input users_min_order_by {
+    avatar_url: order_by
+    created_at: order_by
+    display_name: order_by
+    id: order_by
+    updated_at: order_by
+}
+
+"input type for inserting object relation for remote table \"users\""
+input users_obj_rel_insert_input {
+    data: users_insert_input!
+    on_conflict: users_on_conflict
+}
+
+"on conflict condition type for table \"users\""
+input users_on_conflict {
+    constraint: users_constraint!
+    update_columns: [users_update_column!]!
+    where: users_bool_exp
+}
+
+"ordering options when selecting data from \"users\""
+input users_order_by {
+    account: auth_accounts_order_by
+    addresses_aggregate: addresses_aggregate_order_by
+    avatar_url: order_by
+    categories_aggregate: categories_aggregate_order_by
+    categories_translations_aggregate: categories_translations_aggregate_order_by
+    created_at: order_by
+    display_name: order_by
+    id: order_by
+    updated_at: order_by
+}
+
+"primary key columns input for table: \"users\""
+input users_pk_columns_input {
+    id: uuid!
+}
+
+"input type for updating data in table \"users\""
+input users_set_input {
+    avatar_url: String
+    created_at: timestamptz
+    display_name: String
+    id: uuid
+    updated_at: timestamptz
+}
+
+"expression to compare columns of type uuid. All fields are combined with logical 'AND'."
+input uuid_comparison_exp {
+    _eq: uuid
+    _gt: uuid
+    _gte: uuid
+    _in: [uuid!]
+    _is_null: Boolean
+    _lt: uuid
+    _lte: uuid
+    _neq: uuid
+    _nin: [uuid!]
+}
+
+
+scalar bpchar
+
+scalar citext
+
+scalar jsonb
+
+scalar smallint
+
+scalar timestamptz
+
+scalar uuid
