@@ -1,0 +1,13 @@
+{
+  "commonFr": {
+    "goToHomePage": "Retour à la page c'accueil",
+    "goToSecondPage": "Aller à la deuxième page",
+    "topMenu": {
+      "home": "Accueil",
+      "dashboard": "Tableau de board",
+      "login": "Connexion",
+      "logout": "Déconnexion",
+      "register": "Créer compte"
+    }
+  }
+}

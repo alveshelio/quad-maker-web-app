@@ -1,4 +1,26 @@
-const resources = require('./i18n.json')
+const { commonEn } = require('./src/locales/en/common.json')
+const { homeEn } = require('./src/locales/en/home.json')
+const { dashboardEn } = require('./src/locales/en/dashboard.json')
+const { commonFr } = require('./src/locales/fr/common.json')
+const { homeFr } = require('./src/locales/fr/home.json')
+const { dashboardFr } = require('./src/locales/fr/dashboard.json')
+const resources = {
+  en: {
+    translation: {
+      common: commonEn,
+      home: homeEn,
+      dashboard: dashboardEn,
+    },
+  },
+  fr: {
+    translation: {
+      common: commonFr,
+      home: homeFr,
+      dashboard: dashboardFr,
+    },
+  },
+}
+
 const supportedLanguages = Object.keys(resources)
 
 module.exports = {

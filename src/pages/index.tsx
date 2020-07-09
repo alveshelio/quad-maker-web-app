@@ -17,9 +17,7 @@ const IndexPage: React.FC = () => {
       <Heading>{t('home.greeting')}</Heading>
       <Text>{t('home.details')}</Text>
       <Text>{t('home.prompt')}</Text>
-      <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden">
-        <Image />
-      </Box>
+
       <Link to="/page-2/">{t('common.goToSecondPage')}</Link>
     </Layout>
   )

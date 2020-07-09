@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/core'
 import { WiDaySunny, WiMoonAltWaxingCrescent4 } from 'react-icons/wi'
 import { Link as GatsbyLink } from 'gatsby'
-import { usePageContext } from '@3nvi/gatsby-theme-intl'
+import { usePageContext, useTranslation } from '@3nvi/gatsby-theme-intl'
 
 import MenuItem from './menuItem'
 import Connection from './modals/connection'
@@ -24,6 +24,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
+  const [t] = useTranslation()
   const { supportedLanguages, originalPath, lang } = usePageContext()
   const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -56,7 +57,9 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
               <MenuItem href="/">Home</MenuItem>
               <MenuItem href="/page-2">Page 2</MenuItem>
               {auth.isAuthenticated() && (
-                <MenuItem href="/dashboard">Dashboard</MenuItem>
+                <MenuItem href="/dashboard">
+                  {t('common.topMenu.dashboard')}
+                </MenuItem>
               )}
               {!auth.isAuthenticated() && (
                 <Button
@@ -65,7 +68,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
                   color="white"
                   _hover={{ textDecoration: 'none' }}
                 >
-                  Register / Login
+                  {t('common.topMenu.register')} / {t('common.topMenu.login')}
                 </Button>
               )}
               {auth.isAuthenticated() && (
@@ -75,7 +78,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
                   color="white"
                   _hover={{ textDecoration: 'none' }}
                 >
-                  Logout
+                  {t('common.topMenu.logout')}
                 </Button>
               )}
             </Box>
