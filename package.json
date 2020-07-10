@@ -1,9 +1,9 @@
 {
-  "name": "@3nvi/gatsby-starter-intl",
+  "name": "squad-maker",
   "version": "0.4.6",
-  "description": "A gatsby starter to help create i18n applications",
-  "author": "Aggelos Arvanitakis (@3nvi)",
-  "homepage": "https://github.com/3nvi/gatsby-intl#readme",
+  "description": "An application to create random teams",
+  "author": "Helio Alves",
+  "homepage": "https://github.com/alveshelio/squad-maker",
   "license": "MIT",
   "main": "index.js",
   "private": false,
@@ -86,7 +86,7 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
-    "lint:fix": "yarn lint --fix",
+    "lint:fix": "npm run lint --fix",
     "type-check": "tsc",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -94,13 +94,5 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "storybook": "NODE_ENV=production start-storybook -s ./public -p 6006 --ci",
     "build-storybook": "NODE_ENV=production build-storybook"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/3nvi/gatsby-intl",
-    "directory": "packages/gatsby-starter-intl"
-  },
-  "bugs": {
-    "url": "https://github.com/3nvi/gatsby-intl/issues"
   }
 }
